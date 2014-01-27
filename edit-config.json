@@ -1,5 +1,5 @@
 {
-  "id": "zedit",
+  "id": "edit",
   "inputs": ["js/mugd/editor/mugd.editor.js"],
   "paths": ["js"],
   "mode": "RAW",
