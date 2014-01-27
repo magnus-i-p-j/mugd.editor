@@ -61,11 +61,6 @@ mugd.editor.AbstractViewModel.prototype.disposeInternal = function () {
   goog.base(this, 'disposeInternal');
 };
 
-mugd.editor.AbstractViewModel.prototype['saveModel'] = function () {
-  var json = JSON.stringify(this);
-  var blob = new Blob([json], {'type': 'data:application/json;charset=utf-8'});
-  saveAs(blob, this['fileName']());
-};
 /**
  * @param {string} path
  * @returns {*}
