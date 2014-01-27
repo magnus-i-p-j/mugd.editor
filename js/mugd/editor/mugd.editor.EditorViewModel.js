@@ -4,10 +4,12 @@ goog.require('goog.net.XhrIo');
 
 /**
  * @constructor
+ * @param {string} schema
+ * @param {string} data
  */
-mugd.editor.EditorViewModel = function () {
-  this['schemaUri'] = ko.observable('../data/main_schema.json');
-  this['dataUri'] = ko.observable('../data/main.json');
+mugd.editor.EditorViewModel = function (schema, data) {
+  this['schemaUri'] = ko.observable(schema);
+  this['dataUri'] = ko.observable(data);
   this['model'] = ko.observable();
 };
 

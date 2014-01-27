@@ -12,7 +12,7 @@ goog.require('mugd.editor.Link');
  */
 mugd.editor.FullLinkViewModel = function (schema, resolver) {
   goog.base(this, schema, resolver);
-  this.options = resolver.select(schema);
+  this['options'] = resolver.select(schema);
   this['template']('full-link');
 
   this._link = new mugd.editor.Link(schema['links']['href']);

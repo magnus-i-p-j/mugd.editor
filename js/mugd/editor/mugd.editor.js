@@ -45,11 +45,13 @@ mugd.editor._getModel = function (schema, resolver) {
 
 /**
  * @param {!Element} rootNode
+ * @param {!Object.<string,string>} config
  */
-mugd.editor.init = function (rootNode) {
+mugd.editor.init = function (rootNode, config) {
   infuser.defaults.templatePrefix = 'tpl/editor/';
-  var vm = new mugd.editor.EditorViewModel();
+  var vm = new mugd.editor.EditorViewModel(config.schema, config.data);
   ko.applyBindings(vm, rootNode);
+  return vm;
 };
 
 goog.exportSymbol('editor.init', mugd.editor.init);

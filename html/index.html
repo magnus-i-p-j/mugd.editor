@@ -12,12 +12,12 @@
         document.createElement('footer');
     </script>
     <![endif]-->
-  <title>Ruleset editor</title>
+  <title>JSON editor</title>
   <link rel="stylesheet/less" type="text/css" href="../css/all.less">
 </head>
 <body>
 <div id="main"
-     class="ruleset_editor layout"
+     class="editor layout"
      data-bind="template: 'editor'">
 </div>
 
@@ -27,7 +27,9 @@
 <script src="../libs/koExternalTemplateEngine_all.js"></script>
 <script src="http://localhost:9810/compile?id=edit"></script>
 <script type="text/javascript">
-  editor.init( document.getElementById("main"));
+  var config = {schema: '../data/main_schema.json', data: '../data/main.json'};
+  var vm =  editor.init( document.getElementById("main"), config);
+  vm.loadModel();
 </script>
 </body>
 </html>

@@ -27,10 +27,16 @@ mugd.editor.AbstractViewModel = function (schema, resolver) {
    * @type {string}
    */
   this['type'] = schema['type'];
+
+  var template = this['type'];
+  if(schema['format']){
+    template = template + "/" + schema['format'];
+  }
+
   /**
    * @type {function(string=):string}
    */
-  this['template'] = ko.observable(this['type']);
+  this['template'] = ko.observable(template);
   /**
    *
    *@type {function(string=):string}
