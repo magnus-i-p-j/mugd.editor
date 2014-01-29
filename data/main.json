@@ -35,21 +35,20 @@
     "description": "A rickety fence, suitable for delaying zombies while you leg it.",
     "zone": "perimeter"
   }
-], "zone": [
+], "connectionsID": [
   {
-    "type": "content",
-    "name": "Content",
-    "description": "Inner parts of tile"
+    "type": "ifs",
+    "name": "IFS",
+    "description": "Connection to IFS",
+    "connectionString": "blablabla",
+    "path": "pathpathpath"
   },
   {
-    "type": "perimeter",
-    "name": "Perimeter",
-    "description": "The stuff around the tile"
-  },
-  {
-    "type": "base",
-    "name": "Base",
-    "description": "The stuff the tile is made of"
+    "type": "primavera",
+    "name": "Primavera",
+    "description": "Connection to Primavera",
+    "connectionString": "blablabla",
+    "path": "pathpathpath"
   }
 ], "project": [
   {
