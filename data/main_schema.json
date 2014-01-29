@@ -58,68 +58,13 @@
               "description": "Describes the operation",
               "type": "string"
             },
-            "operandType": {
-              "title": "OperandType",
-              "description": "Describes the operation",
-              "type": "object",
-              "properties": {
-                "type": {
-                  "title": "ID",
-                  "type": "string",
-                  "format": "id"
-                },
-                "name": {
-                  "title": "Name",
-                  "description": "Name of operation",
-                  "type": "string"
-                },
-                "description": {
-                  "title": "Description",
-                  "description": "Describes the operation",
-                  "type": "string"
-                },
-                "targetType": {
-                  "title": "TargetType",
-                  "description": "Name of operation",
-                  "type": "string"
-                },
-                "schemaType": {
-                  "title": "SchemaType",
-                  "description": "Describes the operation",
-                  "type": "string"
-                },
-                "adapterId": {
-                  "title": "AdapterId",
-                  "description": "Name of operation",
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "title": "ID",
-                      "type": "string",
-                      "format": "id"
-                    },
-                    "name": {
-                      "title": "Name",
-                      "description": "Name of operation",
-                      "type": "string"
-                    },
-                    "description": {
-                      "title": "Description",
-                      "description": "Describes the operation",
-                      "type": "string"
-                    },
-                    "assembly": {
-                      "title": "Assembly",
-                      "description": "Name of operation",
-                      "type": "string"
-                    },
-                    "adapterType": {
-                      "title": "Type",
-                      "description": "Name of operation",
-                      "type": "string"
-                    }
-                  }
-                }
+            "operandTypes": {
+              "title": "OperandTypes",
+              "description": "The zone the terrain occupies",
+              "type": "string",
+              "links": {
+                "rel": "full",
+                "href": "editor://operandTypes/{@}"
               }
             },
             "connectionsID": {
@@ -158,68 +103,13 @@
               "description": "Describes the operation",
               "type": "string"
             },
-            "operandType": {
-              "title": "OperandType",
-              "description": "Describes the operation",
-              "type": "object",
-              "properties": {
-                "type": {
-                  "title": "ID",
-                  "type": "string",
-                  "format": "id"
-                },
-                "name": {
-                  "title": "Name",
-                  "description": "Name of operation",
-                  "type": "string"
-                },
-                "description": {
-                  "title": "Description",
-                  "description": "Describes the operation",
-                  "type": "string"
-                },
-                "targetType": {
-                  "title": "TargetType",
-                  "description": "Name of operation",
-                  "type": "string"
-                },
-                "schemaType": {
-                  "title": "SchemaType",
-                  "description": "Describes the operation",
-                  "type": "string"
-                },
-                "adapterId": {
-                  "title": "AdapterId",
-                  "description": "Name of operation",
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "title": "ID",
-                      "type": "string",
-                      "format": "id"
-                    },
-                    "name": {
-                      "title": "Name",
-                      "description": "Name of operation",
-                      "type": "string"
-                    },
-                    "description": {
-                      "title": "Description",
-                      "description": "Describes the operation",
-                      "type": "string"
-                    },
-                    "assembly": {
-                      "title": "Assembly",
-                      "description": "Name of operation",
-                      "type": "string"
-                    },
-                    "adapterType": {
-                      "title": "Type",
-                      "description": "Name of operation",
-                      "type": "string"
-                    }
-                  }
-                }
+            "operandTypes": {
+              "title": "OperandTypes",
+              "description": "The zone the terrain occupies",
+              "type": "string",
+              "links": {
+                "rel": "full",
+                "href": "editor://operandTypes/{@}"
               }
             },
             "connectionsID": {
@@ -643,68 +533,13 @@
                   "description": "Describes the operation",
                   "type": "string"
                 },
-                "operandType": {
-                  "title": "OperandType",
-                  "description": "Describes the operation",
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "title": "ID",
-                      "type": "string",
-                      "format": "id"
-                    },
-                    "name": {
-                      "title": "Name",
-                      "description": "Name of operation",
-                      "type": "string"
-                    },
-                    "description": {
-                      "title": "Description",
-                      "description": "Describes the operation",
-                      "type": "string"
-                    },
-                    "targetType": {
-                      "title": "TargetType",
-                      "description": "Name of operation",
-                      "type": "string"
-                    },
-                    "schemaType": {
-                      "title": "SchemaType",
-                      "description": "Describes the operation",
-                      "type": "string"
-                    },
-                    "adapterId": {
-                      "title": "AdapterId",
-                      "description": "Name of operation",
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "title": "ID",
-                          "type": "string",
-                          "format": "id"
-                        },
-                        "name": {
-                          "title": "Name",
-                          "description": "Name of operation",
-                          "type": "string"
-                        },
-                        "description": {
-                          "title": "Description",
-                          "description": "Describes the operation",
-                          "type": "string"
-                        },
-                        "assembly": {
-                          "title": "Assembly",
-                          "description": "Name of operation",
-                          "type": "string"
-                        },
-                        "adapterType": {
-                          "title": "Type",
-                          "description": "Name of operation",
-                          "type": "string"
-                        }
-                      }
-                    }
+                "operandTypes": {
+                  "title": "OperandTypes",
+                  "description": "The zone the terrain occupies",
+                  "type": "string",
+                  "links": {
+                    "rel": "full",
+                    "href": "editor://operandTypes/{@}"
                   }
                 },
                 "connectionsID": {
@@ -745,68 +580,13 @@
               "description": "Describes the operation",
               "type": "string"
             },
-            "operandType": {
-              "title": "OperandType",
-              "description": "Describes the operation",
-              "type": "object",
-              "properties": {
-                "type": {
-                  "title": "ID",
-                  "type": "string",
-                  "format": "id"
-                },
-                "name": {
-                  "title": "Name",
-                  "description": "Name of operation",
-                  "type": "string"
-                },
-                "description": {
-                  "title": "Description",
-                  "description": "Describes the operation",
-                  "type": "string"
-                },
-                "targetType": {
-                  "title": "TargetType",
-                  "description": "Name of operation",
-                  "type": "string"
-                },
-                "schemaType": {
-                  "title": "SchemaType",
-                  "description": "Describes the operation",
-                  "type": "string"
-                },
-                "adapterId": {
-                  "title": "AdapterId",
-                  "description": "Name of operation",
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "title": "ID",
-                      "type": "string",
-                      "format": "id"
-                    },
-                    "name": {
-                      "title": "Name",
-                      "description": "Name of operation",
-                      "type": "string"
-                    },
-                    "description": {
-                      "title": "Description",
-                      "description": "Describes the operation",
-                      "type": "string"
-                    },
-                    "assembly": {
-                      "title": "Assembly",
-                      "description": "Name of operation",
-                      "type": "string"
-                    },
-                    "adapterType": {
-                      "title": "Type",
-                      "description": "Name of operation",
-                      "type": "string"
-                    }
-                  }
-                }
+            "operandTypes": {
+              "title": "OperandTypes",
+              "description": "The zone the terrain occupies",
+              "type": "string",
+              "links": {
+                "rel": "full",
+                "href": "editor://operandTypes/{@}"
               }
             },
             "connectionsID": {
@@ -865,6 +645,79 @@
         "links": {
           "rel": "self",
           "href": "editor://connection/{type}"
+        }
+      }
+    },
+    "operandTypes": {
+      "title": "OperandTypes",
+      "description": "Different types of operands.",
+      "type": "array",
+      "items": {
+        "title": "OperandType",
+        "description": "A part of the stuff you walk on.",
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "ID",
+            "type": "string",
+            "format": "id"
+          },
+          "name": {
+            "title": "Name",
+            "description": "Name of operation",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "description": "Describes the operation",
+            "type": "string"
+          },
+          "targetType": {
+            "title": "TargetType",
+            "description": "Name of operation",
+            "type": "string"
+          },
+          "schemaType": {
+            "title": "SchemaType",
+            "description": "Describes the operation",
+            "type": "string"
+          },
+          "adapterId": {
+            "title": "AdapterId",
+            "description": "Name of operation",
+            "type": "object",
+            "properties": {
+              "type": {
+                "title": "ID",
+                "type": "string",
+                "format": "id"
+              },
+              "name": {
+                "title": "Name",
+                "description": "Name of operation",
+                "type": "string"
+              },
+              "description": {
+                "title": "Description",
+                "description": "Describes the operation",
+                "type": "string"
+              },
+              "assembly": {
+                "title": "Assembly",
+                "description": "Name of operation",
+                "type": "string"
+              },
+              "adapterType": {
+                "title": "Type",
+                "description": "Name of operation",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "links": {
+          "rel": "self",
+          "href": "editor://operandTypes/{type}"
         }
       }
     }
