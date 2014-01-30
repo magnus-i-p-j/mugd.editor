@@ -13,7 +13,12 @@ goog.require('mugd.editor.Link');
 mugd.editor.FullLinkViewModel = function (schema, resolver) {
   goog.base(this, schema, resolver);
   this['options'] = resolver.select(schema);
-  this['template']('full-link');
+
+  if (schema['format']) {
+    this['template']('full-link/' + schema['format']);
+  } else {
+    this['template']('full-link');
+  }
 
   this._link = new mugd.editor.Link(schema['links']['href']);
   this._link.model(this);
@@ -41,12 +46,12 @@ mugd.editor.FullLinkViewModel = function (schema, resolver) {
   }, this);
 
   this._link.uri.subscribe(
-      function (uri) {
-        if (uri.substring(0, 4) !== 'guid') {
-          resolver.get(uri, this._model);
-        }
-      },
-      this
+    function (uri) {
+      if (uri.substring(0, 4) !== 'guid') {
+        resolver.get(uri, this._model);
+      }
+    },
+    this
   );
 
 };
