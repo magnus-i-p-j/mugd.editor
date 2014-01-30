@@ -190,7 +190,40 @@
     "name": "Food",
     "description": "Turnips"
   }
-], "artifact": [], "personnel": [], "bounds": {
+], "artifact": [], "personnel": [], "images": [
+  {
+    "type": "fence_2",
+    "url": "tiles/fence_2.png"
+  },
+  {
+    "type": "fence",
+    "url": "tiles/fence.png"
+  },
+  {
+    "type": "field",
+    "url": "tiles/field.png"
+  },
+  {
+    "type": "grass",
+    "url": "tiles/grass.png"
+  },
+  {
+    "type": "hill",
+    "url": "tiles/hill.png"
+  },
+  {
+    "type": "house",
+    "url": "tiles/house.png"
+  },
+  {
+    "type": "tiles",
+    "url": "tiles/tiles.png"
+  },
+  {
+    "type": "water",
+    "url": "tiles/water.png"
+  }
+], "bounds": {
   "starting_resources": [
     {
       "type": "wood",
