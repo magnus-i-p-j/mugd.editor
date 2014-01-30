@@ -35,7 +35,16 @@
               "rel": "full",
               "href": "game://zone/{@}"
             }
-
+          },
+          "image": {
+            "title": "Image",
+            "description": "What the tile looks like",
+            "type": "string",
+            "format": "image",
+            "links": {
+              "rel": "full",
+              "href": "game://image/{@}"
+            }
           }
         },
         "links": {
@@ -358,7 +367,6 @@
           "rel": "self",
           "href": "game://image/{type}"
         }
-
       }
     },
     "bounds": {
