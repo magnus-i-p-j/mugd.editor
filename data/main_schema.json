@@ -26,12 +26,12 @@
         "batch": {
           "title": "Batch: ",
           "description": "Describes the operation",
-          "type": "string"
+          "type": "bool"
         },
         "p3eDirectionImport": {
           "title": "P3eDirectionImport: ",
           "description": "Describes the operation",
-          "type": "string"
+          "type": "bool"
         },
         "sourceOperand": {
           "title": "SourceOperand",
@@ -103,7 +103,7 @@
                   "uiVisible": {
                     "title": "UIVisible: ",
                     "description": "Describes the operation",
-                    "type": "string"
+                    "type": "bool"
                   },
                   "valueType": {
                     "title": "ValueType: ",
@@ -185,7 +185,7 @@
                   "isMultiValue": {
                     "title": "IsMultiValue: ",
                     "description": "Describes the operation",
-                    "type": "string"
+                    "type": "bool"
                   }
                 },
                 "links": {
@@ -266,7 +266,7 @@
                   "uiVisible": {
                     "title": "UIVisible: ",
                     "description": "Describes the operation",
-                    "type": "string"
+                    "type": "bool"
                   },
                   "valueType": {
                     "title": "ValueType: ",
@@ -348,7 +348,7 @@
                   "isMultiValue": {
                     "title": "IsMultiValue: ",
                     "description": "Describes the operation",
-                    "type": "string"
+                    "type": "bool"
                   }
                 },
                 "links": {

@@ -16,13 +16,13 @@ mugd.editor.PrimitiveViewModel = function (schema, resolver) {
   goog.base(this, schema, resolver);
 
   /**
-   * @type {string|number}
+   * @type {string|number|bool}
    * @private
    */
   var _value = ko.observable();
   var validateValueCallback = mugd.editor.PrimitiveViewModel.validateValue[this['type']];
   /**
-   * @type {function(string=):string|number}
+   * @type {function(string=):string|number|bool}
    */
   this['value'] = ko.computed(
       {
@@ -70,7 +70,8 @@ mugd.editor.PrimitiveViewModel.prototype.fetchSplitPath = function (path, index)
 mugd.editor.PrimitiveViewModel.isPrimitiveValue = function (schema) {
   return goog.array.contains([
     mugd.editor.constants.ValueType.STRING,
-    mugd.editor.constants.ValueType.NUMBER
+    mugd.editor.constants.ValueType.NUMBER,
+    mugd.editor.constants.ValueType.BOOL
 //      mugd.editor.constants.ValueType.STRING,
 //      mugd.editor.constants.ValueType.STRING
   ],
@@ -96,5 +97,11 @@ mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.NUM
   return parseFloat(value);
 };
 
+mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.ENUM] = function (value) {
+  if (!mugd.utils.isBoolean(value)) {
+    throw {'name': 'TypeMismatchException', 'reason': 'Expected bool', 'value': value};
+  }
+  return (value);
+};
 
 

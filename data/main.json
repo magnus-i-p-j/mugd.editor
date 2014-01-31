@@ -50,7 +50,7 @@
     "connectionString": "blablabla",
     "path": "pathpathpath"
   }
-], "operandTypes": [
+],  "operandTypes": [
   {
     "type": "Operandtyp 1",
     "name": "Olle",
