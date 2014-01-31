@@ -9,27 +9,27 @@
       "title": "Operation",
       "properties": {
         "type": {
-          "title": "ID",
+          "title": "ID: ",
           "type": "string",
           "format": "id"
         },
         "name": {
-          "title": "Name",
+          "title": "Name: ",
           "description": "Name of operation",
           "type": "string"
         },
         "description": {
-          "title": "Description",
+          "title": "Description: ",
           "description": "Describes the operation",
           "type": "string"
         },
         "batch": {
-          "title": "Batch",
+          "title": "Batch: ",
           "description": "Describes the operation",
           "type": "string"
         },
         "p3eDirectionImport": {
-          "title": "P3eDirectionImport",
+          "title": "P3eDirectionImport: ",
           "description": "Describes the operation",
           "type": "string"
         },
@@ -39,27 +39,27 @@
           "type": "object",
           "properties": {
             "type": {
-              "title": "ID",
+              "title": "ID: ",
               "type": "string",
               "format": "id"
             },
             "name": {
-              "title": "Name",
+              "title": "Name: ",
               "description": "Name of operation",
               "type": "string"
             },
             "description": {
-              "title": "Description",
+              "title": "Description: ",
               "description": "Describes the operation",
               "type": "string"
             },
             "schema": {
-              "title": "Schema",
+              "title": "Schema: ",
               "description": "Describes the operation",
               "type": "string"
             },
             "operandTypes": {
-              "title": "OperandTypes",
+              "title": "OperandTypes: ",
               "description": "The zone the terrain occupies",
               "type": "string",
               "links": {
@@ -68,12 +68,130 @@
               }
             },
             "connectionsID": {
-              "title": "ConnectionID",
+              "title": "ConnectionID: ",
               "description": "The zone the terrain occupies",
               "type": "string",
               "links": {
                 "rel": "full",
                 "href": "editor://connection/{@}"
+              }
+            },
+            "parameters":{
+              "title": "Parameters",
+              "description": "An array of parameters.",
+              "type": "array",
+              "items": {
+                "title": "Parameter",
+                "description": "Some sort of stuff to walk on.",
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "title": "ID",
+                    "type": "string",
+                    "format": "id"
+                  },
+                  "name": {
+                    "title": "Name: ",
+                    "description": "Name of operation",
+                    "type": "string"
+                  },
+                  "description": {
+                    "title": "Description: ",
+                    "description": "Describes the operation",
+                    "type": "string"
+                  },
+                  "uiVisible": {
+                    "title": "UIVisible: ",
+                    "description": "Describes the operation",
+                    "type": "string"
+                  },
+                  "valueType": {
+                    "title": "ValueType: ",
+                    "description": "Describes the operation",
+                    "enum": [ "Bool", "Int", "Double", "String", "DateTime" ]
+                  },
+                  "field": {
+                    "title": "Field: ",
+                    "description": "Describes the operation",
+                    "type": "string"
+                  },
+                  "operator": {
+                    "title": "Operator: ",
+                    "description": "Describes the operation",
+                    "enum": [ "<", ">", "<=", ">=", "=", "!=", "IN", "NOT IN" ]
+                  },
+                  "parameterValueID": {
+                    "title": "ParameterValueID",
+                    "description": "Describes the operation",
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "title": "ID: ",
+                        "type": "string",
+                        "format": "id"
+                      },
+                      "value": {
+                        "title": "Value: ",
+                        "description": "Name of operation",
+                        "type": "string"
+                      },
+                      "valueLookUp": {
+                        "title": "ValueLookUp",
+                        "description": "Describes the operation",
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "title": "ID: ",
+                            "type": "string",
+                            "format": "id"
+                          },
+                          "name": {
+                            "title": "Name: ",
+                            "description": "Name of operation",
+                            "type": "string"
+                          },
+                          "description": {
+                            "title": "Description: ",
+                            "description": "Describes the operation",
+                            "type": "string"
+                          },
+                          "schema": {
+                            "title": "Schema: ",
+                            "description": "Describes the operation",
+                            "type": "string"
+                          },
+                          "operandTypes": {
+                            "title": "OperandTypes: ",
+                            "description": "The zone the terrain occupies",
+                            "type": "string",
+                            "links": {
+                              "rel": "full",
+                              "href": "editor://operandTypes/{@}"
+                            }
+                          },
+                          "connectionsID": {
+                            "title": "ConnectionID: ",
+                            "description": "The zone the terrain occupies",
+                            "type": "string",
+                            "links": {
+                              "rel": "full",
+                              "href": "editor://connection/{@}"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "isMultiValue": {
+                    "title": "IsMultiValue: ",
+                    "description": "Describes the operation",
+                    "type": "string"
+                  }
+                },
+                "links": {
+                  "rel": "self",
+                  "href": "editor://parameters/{type}"
+                }
               }
             }
           }
@@ -84,27 +202,27 @@
           "type": "object",
           "properties": {
             "type": {
-              "title": "ID",
+              "title": "ID: ",
               "type": "string",
               "format": "id"
             },
             "name": {
-              "title": "Name",
+              "title": "Name: ",
               "description": "Name of operation",
               "type": "string"
             },
             "description": {
-              "title": "Description",
+              "title": "Description: ",
               "description": "Describes the operation",
               "type": "string"
             },
             "schema": {
-              "title": "Schema",
+              "title": "Schema: ",
               "description": "Describes the operation",
               "type": "string"
             },
             "operandTypes": {
-              "title": "OperandTypes",
+              "title": "OperandTypes: ",
               "description": "The zone the terrain occupies",
               "type": "string",
               "links": {
@@ -113,12 +231,130 @@
               }
             },
             "connectionsID": {
-              "title": "ConnectionID",
+              "title": "ConnectionID: ",
               "description": "The zone the terrain occupies",
               "type": "string",
               "links": {
                 "rel": "full",
                 "href": "editor://connection/{@}"
+              }
+            },
+            "parameters":{
+              "title": "Parameters",
+              "description": "An array of parameters.",
+              "type": "array",
+              "items": {
+                "title": "Parameter",
+                "description": "Some sort of stuff to walk on.",
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "title": "ID: ",
+                    "type": "string",
+                    "format": "id"
+                  },
+                  "name": {
+                    "title": "Name: ",
+                    "description": "Name of operation",
+                    "type": "string"
+                  },
+                  "description": {
+                    "title": "Description: ",
+                    "description": "Describes the operation",
+                    "type": "string"
+                  },
+                  "uiVisible": {
+                    "title": "UIVisible: ",
+                    "description": "Describes the operation",
+                    "type": "string"
+                  },
+                  "valueType": {
+                    "title": "ValueType: ",
+                    "description": "Describes the operation",
+                    "enum": [ "Bool", "Int", "Double", "String", "DateTime" ]
+                  },
+                  "field": {
+                    "title": "Field: ",
+                    "description": "Describes the operation",
+                    "type": "string"
+                  },
+                  "operator": {
+                    "title": "Operator: ",
+                    "description": "Describes the operation",
+                    "enum": [ "<", ">", "<=", ">=", "=", "!=", "IN", "NOT IN" ]
+                  },
+                  "parameterValueID": {
+                    "title": "ParameterValueID",
+                    "description": "Describes the operation",
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "title": "ID: ",
+                        "type": "string",
+                        "format": "id"
+                      },
+                      "value": {
+                        "title": "Value: ",
+                        "description": "Name of operation",
+                        "type": "string"
+                      },
+                      "valueLookUp": {
+                        "title": "ValueLookUp",
+                        "description": "Describes the operation",
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "title": "ID: ",
+                            "type": "string",
+                            "format": "id"
+                          },
+                          "name": {
+                            "title": "Name: ",
+                            "description": "Name of operation",
+                            "type": "string"
+                          },
+                          "description": {
+                            "title": "Description: ",
+                            "description": "Describes the operation",
+                            "type": "string"
+                          },
+                          "schema": {
+                            "title": "Schema: ",
+                            "description": "Describes the operation",
+                            "type": "string"
+                          },
+                          "operandTypes": {
+                            "title": "OperandTypes: ",
+                            "description": "The zone the terrain occupies",
+                            "type": "string",
+                            "links": {
+                              "rel": "full",
+                              "href": "editor://operandTypes/{@}"
+                            }
+                          },
+                          "connectionsID": {
+                            "title": "ConnectionID: ",
+                            "description": "The zone the terrain occupies",
+                            "type": "string",
+                            "links": {
+                              "rel": "full",
+                              "href": "editor://connection/{@}"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "isMultiValue": {
+                    "title": "IsMultiValue: ",
+                    "description": "Describes the operation",
+                    "type": "string"
+                  }
+                },
+                "links": {
+                  "rel": "self",
+                  "href": "editor://parameters/{type}"
+                }
               }
             }
           }
@@ -127,492 +363,6 @@
           "title": "Map",
           "description": "Name of operation",
           "type": "string"
-        },
-        "parameters":{
-          "title": "Parameters",
-          "description": "An array of parameters.",
-          "type": "array",
-          "items": {
-            "title": "Parameter",
-            "description": "Some sort of stuff to walk on.",
-            "type": "object",
-            "properties": {
-              "type": {
-                "title": "ID",
-                "type": "string",
-                "format": "id"
-              },
-              "name": {
-                "title": "Name",
-                "description": "Name of operation",
-                "type": "string"
-              },
-              "description": {
-                "title": "Description",
-                "description": "Describes the operation",
-                "type": "string"
-              },
-              "uiVisible": {
-                "title": "UIVisible",
-                "description": "Describes the operation",
-                "type": "string"
-              },
-              "valueType": {
-                "title": "ValueType",
-                "description": "Describes the operation",
-                "type": "string"
-              },
-              "field": {
-                "title": "Field",
-                "description": "Describes the operation",
-                "type": "string"
-              },
-              "operator": {
-                "title": "Operator",
-                "description": "Describes the operation",
-                "type": "string"
-              },
-              "parameterValueID": {
-                "title": "ParameterValueID",
-                "description": "Describes the operation",
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "title": "ID",
-                    "type": "string",
-                    "format": "id"
-                  },
-                  "value": {
-                    "title": "Value",
-                    "description": "Name of operation",
-                    "type": "string"
-                  },
-                  "valueLookUp": {
-                    "title": "ValueLookUp",
-                    "description": "Describes the operation",
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "title": "ID",
-                        "type": "string",
-                        "format": "id"
-                      },
-                      "name": {
-                        "title": "Name",
-                        "description": "Name of operation",
-                        "type": "string"
-                      },
-                      "description": {
-                        "title": "Description",
-                        "description": "Describes the operation",
-                        "type": "string"
-                      },
-                      "schema": {
-                        "title": "Schema",
-                        "description": "Describes the operation",
-                        "type": "string"
-                      },
-                      "operandTypes": {
-                        "title": "OperandTypes",
-                        "description": "The zone the terrain occupies",
-                        "type": "string",
-                        "links": {
-                          "rel": "full",
-                          "href": "editor://operandTypes/{@}"
-                        }
-                      },
-                      "connectionsID": {
-                        "title": "ConnectionID",
-                        "description": "The zone the terrain occupies",
-                        "type": "string",
-                        "links": {
-                          "rel": "full",
-                          "href": "editor://connection/{@}"
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "operandId": {
-                "title": "OperandID",
-                "description": "Describes the operation",
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "title": "ID",
-                    "type": "string",
-                    "format": "id"
-                  },
-                  "name": {
-                    "title": "Name",
-                    "description": "Name of operation",
-                    "type": "string"
-                  },
-                  "description": {
-                    "title": "Description",
-                    "description": "Describes the operation",
-                    "type": "string"
-                  },
-                  "schema": {
-                    "title": "Schema",
-                    "description": "Describes the operation",
-                    "type": "string"
-                  },
-                  "operandTypes": {
-                    "title": "OperandTypes",
-                    "description": "The zone the terrain occupies",
-                    "type": "string",
-                    "links": {
-                      "rel": "full",
-                      "href": "editor://operandTypes/{@}"
-                    }
-                  },
-                  "connectionsID": {
-                    "title": "ConnectionID",
-                    "description": "The zone the terrain occupies",
-                    "type": "string",
-                    "links": {
-                      "rel": "full",
-                      "href": "editor://connection/{@}"
-                    }
-                  }
-                }
-              },
-              "isMultiValue": {
-                "title": "IsMultiValue",
-                "description": "Describes the operation",
-                "type": "string"
-              }
-            },
-            "links": {
-              "rel": "self",
-              "href": "editor://parameters/{type}"
-            }
-          }
-        }
-      },
-      "zone": {
-        "title": "Zones",
-        "description": "The different zones available in tiles",
-        "type": "array",
-        "items": {
-          "title": "Zone",
-          "description": "A part of the stuff you walk on.",
-          "type": "object",
-          "properties": {
-            "type": {
-              "title": "Type",
-              "type": "string"
-            },
-            "name": {
-              "title": "Name",
-              "description": "Visible name of zone",
-              "type": "string"
-            },
-            "description": {
-              "title": "Description",
-              "description": "Describes the zone",
-              "type": "string"
-            }
-          },
-          "links": {
-            "rel": "self",
-            "href": "game://zone/{type}"
-          }
-        }
-      },
-      "project": {
-        "title": "Projects",
-        "description": "Change things for the better",
-        "type": "array",
-        "items": {
-          "title": "Project",
-          "description": "A project that does stuff",
-          "type": "object",
-          "properties": {
-            "type": {
-              "title": "Type",
-              "type": "string"
-            },
-            "name": {
-              "title": "Name",
-              "description": "Visible name of project",
-              "type": "string"
-            },
-            "description": {
-              "title": "Description",
-              "description": "Describes the operation",
-              "type": "string"
-            },
-            "prerequisites": {
-              "description": "Lists the prerequisites for the project",
-              "title": "Prerequisites",
-              "type": "object",
-              "properties": {
-                "operation": {
-                  "type": "array",
-                  "title": "Terrains",
-                  "description": "The operation types this project is applicable to",
-                  "items": {
-                    "title": "Terrain",
-                    "description": "One of the possible terrains",
-                    "type": "string",
-                    "links": {
-                      "rel": "full",
-                      "href": "game://operation/{@}"
-                    }
-                  }
-                }
-              }
-            },
-            "effects": {
-              "type": "object",
-              "title": "Effects",
-              "description": "The effects this project has",
-              "properties": {
-                "effect_stockpile": {
-                  "title": "Change stockpile",
-                  "type": "array",
-                  "items": {
-                    "title": "Resource",
-                    "description": "One of the resources",
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "title": "Resource",
-                        "description": "The gained resource",
-                        "type": "string",
-                        "links": {
-                          "rel": "full",
-                          "href": "game://stockpile/{@}"
-                        }
-                      },
-                      "magnitude": {
-                        "title": "Magnitude",
-                        "description": "The amount gained",
-                        "type": "number"
-                      },
-                      "variation": {
-                        "title": "Variation",
-                        "description": "The variation in amount gained",
-                        "type": "number"
-                      }
-                    }
-                  },
-                  "description": "Gain this stuff"
-                },
-                "effect_terrain": {
-                  "title": "Change operation",
-                  "description": "Change to this operation",
-                  "type": "string",
-                  "links": {
-                    "rel": "full",
-                    "href": "game://operation/{@}"
-                  }
-                }
-              }
-            },
-            "cost": {
-              "description": "Lists the cost for the project",
-              "title": "Costs",
-              "type": "object",
-              "properties": {
-                "stockpile": {
-                  "type": "array",
-                  "title": "Stockpiled resources",
-                  "description": "Stuff needed to build",
-                  "items": {
-                    "title": "Resource",
-                    "description": "One of the required resources",
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "title": "Resource",
-                        "description": "The required resource",
-                        "type": "string",
-                        "links": {
-                          "rel": "full",
-                          "href": "game://stockpile/{@}"
-                        }
-                      },
-                      "amount": {
-                        "title": "Amount",
-                        "description": "The amount required",
-                        "type": "number"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "actor": {
-        "title": "Actors",
-        "description": "Entities affecting the world",
-        "type": "array",
-        "items": {
-          "title": "Actor",
-          "description": "An actor",
-          "type": "object",
-          "properties": {
-            "type": {
-              "title": "Type",
-              "type": "string"
-            },
-            "name": {
-              "title": "Name",
-              "description": "Visible name of actor",
-              "type": "string"
-            },
-            "description": {
-              "title": "Description",
-              "description": "Describes the actor",
-              "type": "string"
-            }
-          }
-        }
-      },
-      "tile": {
-        "title": "Tiles",
-        "description": "Tiles in the world",
-        "type": "array",
-        "items": {
-          "title": "Tile",
-          "description": "A tile",
-          "type": "object",
-          "properties": {
-            "type": {
-              "title": "Type",
-              "type": "string"
-            },
-            "name": {
-              "title": "Name",
-              "description": "Visible name of tile",
-              "type": "string"
-            },
-            "description": {
-              "title": "Description",
-              "description": "Describes the tile",
-              "type": "string"
-            }
-          }
-        }
-      },
-      "stockpile": {
-        "title": "Stockpile",
-        "description": "Natural resources e.g",
-        "type": "array",
-        "items": {
-          "title": "Stockpile",
-          "description": "A stockpiled resource",
-          "type": "object",
-          "properties": {
-            "type": {
-              "title": "Type",
-              "type": "string"
-            },
-            "name": {
-              "title": "Name",
-              "description": "Visible name of stockpile",
-              "type": "string"
-            },
-            "description": {
-              "title": "Description",
-              "description": "Describes the stockpile",
-              "type": "string"
-            }
-          },
-          "links": {
-            "rel": "self",
-            "href": "game://stockpile/{type}"
-          }
-        }
-
-      },
-      "artifact": {
-        "title": "Artifacts",
-        "description": "Unique items",
-        "type": "array",
-        "items": {
-          "title": "Artifact",
-          "description": "Unique item",
-          "type": "object",
-          "properties": {
-            "type": {
-              "title": "Type",
-              "type": "string"
-            },
-            "name": {
-              "title": "Name",
-              "description": "Visible name of artifact",
-              "type": "string"
-            },
-            "description": {
-              "title": "Description",
-              "description": "Describes the artifact",
-              "type": "string"
-            }
-          }
-        }
-      },
-      "personnel": {
-        "title": "Personnel",
-        "description": "Persons populating the world",
-        "type": "array",
-        "items": {
-          "title": "Character",
-          "description": "A character",
-          "type": "object",
-          "properties": {
-            "type": {
-              "title": "Type",
-              "type": "string"
-            },
-            "name": {
-              "title": "Name",
-              "description": "Visible name of character",
-              "type": "string"
-            },
-            "description": {
-              "title": "Description",
-              "description": "Describes the character",
-              "type": "string"
-            }
-          }
-        }
-      },
-      "bounds": {
-        "title": "Bounds",
-        "description": "Rules affecting the start and end of the game",
-        "type": "object",
-        "properties": {
-          "starting_resources": {
-            "type": "array",
-            "title": "Starting resources",
-            "description": "Resources the player gets at the beginning",
-            "items": {
-              "title": "Resource",
-              "description": "One of the provided resources",
-              "type": "object",
-              "properties": {
-                "type": {
-                  "title": "Resource",
-                  "type": "string",
-                  "links": {
-                    "rel": "full",
-                    "href": "game://stockpile/{@}"
-                  }
-                },
-                "amount": {
-                  "title": "Amount",
-                  "type": "number"
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -626,27 +376,27 @@
         "type": "object",
         "properties": {
           "type": {
-            "title": "ID",
+            "title": "ID: ",
             "type": "string",
             "format": "id"
           },
           "name": {
-            "title": "Name",
+            "title": "Name: ",
             "description": "Name of operation",
             "type": "string"
           },
           "description": {
-            "title": "Description",
+            "title": "Description: ",
             "description": "Describes the operation",
             "type": "string"
           },
           "connectionString": {
-            "title": "ConnectionString",
+            "title": "ConnectionString: ",
             "description": "Name of operation",
             "type": "string"
           },
           "path": {
-            "title": "Path",
+            "title": "Path: ",
             "description": "Name of operation",
             "type": "string"
           }
@@ -667,27 +417,27 @@
         "type": "object",
         "properties": {
           "type": {
-            "title": "ID",
+            "title": "ID: ",
             "type": "string",
             "format": "id"
           },
           "name": {
-            "title": "Name",
+            "title": "Name: ",
             "description": "Name of operation",
             "type": "string"
           },
           "description": {
-            "title": "Description",
+            "title": "Description: ",
             "description": "Describes the operation",
             "type": "string"
           },
           "targetType": {
-            "title": "TargetType",
+            "title": "TargetType: ",
             "description": "Name of operation",
             "type": "string"
           },
           "schemaType": {
-            "title": "SchemaType",
+            "title": "SchemaType: ",
             "description": "Describes the operation",
             "type": "string"
           },
@@ -697,27 +447,27 @@
             "type": "object",
             "properties": {
               "type": {
-                "title": "ID",
+                "title": "ID: ",
                 "type": "string",
                 "format": "id"
               },
               "name": {
-                "title": "Name",
+                "title": "Name: ",
                 "description": "Name of operation",
                 "type": "string"
               },
               "description": {
-                "title": "Description",
+                "title": "Description: ",
                 "description": "Describes the operation",
                 "type": "string"
               },
               "assembly": {
-                "title": "Assembly",
+                "title": "Assembly: ",
                 "description": "Name of operation",
                 "type": "string"
               },
               "adapterType": {
-                "title": "Type",
+                "title": "Type: ",
                 "description": "Name of operation",
                 "type": "string"
               }

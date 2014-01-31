@@ -5,6 +5,7 @@ goog.require('mugd.editor.PrimitiveViewModel');
 goog.require('mugd.editor.ObjectViewModel');
 goog.require('mugd.editor.ArrayViewModel');
 goog.require('mugd.editor.FullLinkViewModel');
+goog.require('mugd.editor.EnumViewModel');
 goog.require('mugd.editor.LinkResolver');
 
 /**
@@ -40,6 +41,10 @@ mugd.editor._getModel = function (schema, resolver) {
       return mugd.editor._getModel(schema['items'], resolver);
     });
   }
+  if (mugd.editor.EnumViewModel.isEnumValue(schema)) {
+    return new mugd.editor.EnumViewModel(schema);
+  }
+
   throw {'name': 'TypeMismatchException', 'reason': 'no such type supported', 'schema': schema};
 };
 
