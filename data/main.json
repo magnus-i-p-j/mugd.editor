@@ -55,8 +55,6 @@
     "type": "Operandtyp 1",
     "name": "Olle",
     "description": "Operand type for Olle",
-    "targetType": "targettype1",
-    "schemaType": "schematype1",
     "adapterId":{
       "type": "adapterid1",
       "name": "adapter253",
@@ -69,8 +67,6 @@
     "type": "Operandtyp 2",
     "name": "Per",
     "description": "Operand type for Per",
-    "targetType": "targettype2",
-    "schemaType": "schematype2",
     "adapterId":{
       "type": "adapterid2",
       "name": "adapter3293",

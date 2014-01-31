@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "operation": {
-      "description": "The stuff people walk on.",
+      "description": "Operationerna i PIFS",
       "type": "object",
       "title": "Operation",
       "properties": {
@@ -14,28 +14,28 @@
           "format": "id"
         },
         "name": {
-          "title": "Name: ",
-          "description": "Name of operation",
+          "title": "Namn: ",
+          "description": "Operationens namn",
           "type": "string"
         },
         "description": {
-          "title": "Description: ",
-          "description": "Describes the operation",
+          "title": "Beskrivning: ",
+          "description": "Beskrivning av operationen",
           "type": "string"
         },
         "batch": {
-          "title": "Batch: ",
-          "description": "Describes the operation",
+          "title": "Bakgrundsjobb: ",
+          "description": "Om operation ska köras som ett bakgrundsjobb",
           "type": "bool"
         },
         "p3eDirectionImport": {
-          "title": "P3eDirectionImport: ",
-          "description": "Describes the operation",
+          "title": "Importera till P3E: ",
+          "description": "Om det ska importeras till P3E",
           "type": "bool"
         },
         "sourceOperand": {
-          "title": "SourceOperand",
-          "description": "Describes the operation",
+          "title": "Källoperand",
+          "description": "Källoperanden till en operation",
           "type": "object",
           "properties": {
             "type": {
@@ -44,23 +44,23 @@
               "format": "id"
             },
             "name": {
-              "title": "Name: ",
-              "description": "Name of operation",
+              "title": "Namn: ",
+              "description": "Operandens namn",
               "type": "string"
             },
             "description": {
-              "title": "Description: ",
-              "description": "Describes the operation",
+              "title": "Beskrivning: ",
+              "description": "Beskrivning av operanden",
               "type": "string"
             },
             "schema": {
               "title": "Schema: ",
-              "description": "Describes the operation",
+              "description": "Schema till operanden",
               "type": "string"
             },
             "operandTypes": {
-              "title": "OperandTypes: ",
-              "description": "The zone the terrain occupies",
+              "title": "Operandtyp: ",
+              "description": "Olika typer av operander",
               "type": "string",
               "links": {
                 "rel": "full",
@@ -68,8 +68,8 @@
               }
             },
             "connectionsID": {
-              "title": "ConnectionID: ",
-              "description": "The zone the terrain occupies",
+              "title": "Anslutning: ",
+              "description": "Hur operanden ska ansluta",
               "type": "string",
               "links": {
                 "rel": "full",
@@ -77,12 +77,12 @@
               }
             },
             "parameters":{
-              "title": "Parameters",
-              "description": "An array of parameters.",
+              "title": "Parametrar",
+              "description": "Källoperandens parametrar",
               "type": "array",
               "items": {
                 "title": "Parameter",
-                "description": "Some sort of stuff to walk on.",
+                "description": "Källoperandens parametrar",
                 "type": "object",
                 "properties": {
                   "type": {
@@ -91,38 +91,38 @@
                     "format": "id"
                   },
                   "name": {
-                    "title": "Name: ",
-                    "description": "Name of operation",
+                    "title": "Namn: ",
+                    "description": "Parameterns namn",
                     "type": "string"
                   },
                   "description": {
-                    "title": "Description: ",
-                    "description": "Describes the operation",
+                    "title": "Beskrivning: ",
+                    "description": "Beskrivning av parametern",
                     "type": "string"
                   },
                   "uiVisible": {
-                    "title": "UIVisible: ",
-                    "description": "Describes the operation",
+                    "title": "Synlig i gränssnitt: ",
+                    "description": "Om parametern ska synas i gränssnittet",
                     "type": "bool"
                   },
                   "valueType": {
-                    "title": "ValueType: ",
-                    "description": "Describes the operation",
+                    "title": "Värdetyp: ",
+                    "description": "Vilken värdetyp som parametern ska ha",
                     "enum": [ "Bool", "Int", "Double", "String", "DateTime" ]
                   },
                   "field": {
-                    "title": "Field: ",
-                    "description": "Describes the operation",
+                    "title": "Fält: ",
+                    "description": "Värdet som operatorn appliceras på",
                     "type": "string"
                   },
                   "operator": {
                     "title": "Operator: ",
-                    "description": "Describes the operation",
+                    "description": "Vilken operator som ska användas",
                     "enum": [ "<", ">", "<=", ">=", "=", "!=", "IN", "NOT IN" ]
                   },
                   "parameterValueID": {
-                    "title": "ParameterValueID",
-                    "description": "Describes the operation",
+                    "title": "Parametervärde",
+                    "description": "Parameterns värde",
                     "type": "object",
                     "properties": {
                       "type": {
@@ -131,13 +131,13 @@
                         "format": "id"
                       },
                       "value": {
-                        "title": "Value: ",
-                        "description": "Name of operation",
+                        "title": "Värde: ",
+                        "description": "Parameterns värde",
                         "type": "string"
                       },
                       "valueLookUp": {
-                        "title": "ValueLookUp",
-                        "description": "Describes the operation",
+                        "title": "Värdeuppslag",
+                        "description": "Vilket värde som ska slås upp",
                         "type": "object",
                         "properties": {
                           "type": {
@@ -146,23 +146,23 @@
                             "format": "id"
                           },
                           "name": {
-                            "title": "Name: ",
-                            "description": "Name of operation",
+                            "title": "Namn: ",
+                            "description": "Namnet på värdeuppslaget",
                             "type": "string"
                           },
                           "description": {
-                            "title": "Description: ",
-                            "description": "Describes the operation",
+                            "title": "Beskrivning: ",
+                            "description": "Beskrivning av värdeuppslaget",
                             "type": "string"
                           },
                           "schema": {
                             "title": "Schema: ",
-                            "description": "Describes the operation",
+                            "description": "Schemat till värdeuppslaget",
                             "type": "string"
                           },
                           "operandTypes": {
-                            "title": "OperandTypes: ",
-                            "description": "The zone the terrain occupies",
+                            "title": "Operandtyp: ",
+                            "description": "Olika operandtyper till värdeuppslaget",
                             "type": "string",
                             "links": {
                               "rel": "full",
@@ -170,8 +170,8 @@
                             }
                           },
                           "connectionsID": {
-                            "title": "ConnectionID: ",
-                            "description": "The zone the terrain occupies",
+                            "title": "Anslutning: ",
+                            "description": "Vilken anslutning som ska användas",
                             "type": "string",
                             "links": {
                               "rel": "full",
@@ -183,8 +183,8 @@
                     }
                   },
                   "isMultiValue": {
-                    "title": "IsMultiValue: ",
-                    "description": "Describes the operation",
+                    "title": "Multi-värde: ",
+                    "description": "Om det är ett multi-värde",
                     "type": "bool"
                   }
                 },
@@ -197,8 +197,8 @@
           }
         },
         "targetOperand": {
-          "title": "TargetOperand",
-          "description": "Describes the operation",
+          "title": "Måloperand",
+          "description": "Måloperanden till en operation",
           "type": "object",
           "properties": {
             "type": {
@@ -207,23 +207,23 @@
               "format": "id"
             },
             "name": {
-              "title": "Name: ",
-              "description": "Name of operation",
+              "title": "Namn: ",
+              "description": "Operandens namn",
               "type": "string"
             },
             "description": {
-              "title": "Description: ",
-              "description": "Describes the operation",
+              "title": "Beskrivning: ",
+              "description": "Beskrivning av operanden",
               "type": "string"
             },
             "schema": {
               "title": "Schema: ",
-              "description": "Describes the operation",
+              "description": "Schemat till operanden",
               "type": "string"
             },
             "operandTypes": {
-              "title": "OperandTypes: ",
-              "description": "The zone the terrain occupies",
+              "title": "Operandtyp: ",
+              "description": "Vilken typ av operand som ska användas",
               "type": "string",
               "links": {
                 "rel": "full",
@@ -231,8 +231,8 @@
               }
             },
             "connectionsID": {
-              "title": "ConnectionID: ",
-              "description": "The zone the terrain occupies",
+              "title": "Anslutning: ",
+              "description": "Vilken anslutning som ska användas",
               "type": "string",
               "links": {
                 "rel": "full",
@@ -240,12 +240,12 @@
               }
             },
             "parameters":{
-              "title": "Parameters",
-              "description": "An array of parameters.",
+              "title": "Parametrar",
+              "description": "Måloperandens parametrar",
               "type": "array",
               "items": {
                 "title": "Parameter",
-                "description": "Some sort of stuff to walk on.",
+                "description": "Operandens parametrar",
                 "type": "object",
                 "properties": {
                   "type": {
@@ -254,38 +254,38 @@
                     "format": "id"
                   },
                   "name": {
-                    "title": "Name: ",
-                    "description": "Name of operation",
+                    "title": "Namn: ",
+                    "description": "Parameterns namn",
                     "type": "string"
                   },
                   "description": {
-                    "title": "Description: ",
-                    "description": "Describes the operation",
+                    "title": "Beskrivning: ",
+                    "description": "Beskrivning av parametern",
                     "type": "string"
                   },
                   "uiVisible": {
-                    "title": "UIVisible: ",
-                    "description": "Describes the operation",
+                    "title": "Synlig i gränssnitt: ",
+                    "description": "Om parametern ska synas i gränssnittet",
                     "type": "bool"
                   },
                   "valueType": {
-                    "title": "ValueType: ",
-                    "description": "Describes the operation",
+                    "title": "Värdetyp: ",
+                    "description": "Vilken värdetyp som parametern ska ha",
                     "enum": [ "Bool", "Int", "Double", "String", "DateTime" ]
                   },
                   "field": {
-                    "title": "Field: ",
-                    "description": "Describes the operation",
+                    "title": "Fält: ",
+                    "description": "Värdet som operatorn ska appliceras på",
                     "type": "string"
                   },
                   "operator": {
                     "title": "Operator: ",
-                    "description": "Describes the operation",
+                    "description": "Vilken operator som ska användas",
                     "enum": [ "<", ">", "<=", ">=", "=", "!=", "IN", "NOT IN" ]
                   },
                   "parameterValueID": {
-                    "title": "ParameterValueID",
-                    "description": "Describes the operation",
+                    "title": "Parametervärde",
+                    "description": "Parameterns värde",
                     "type": "object",
                     "properties": {
                       "type": {
@@ -294,13 +294,13 @@
                         "format": "id"
                       },
                       "value": {
-                        "title": "Value: ",
-                        "description": "Name of operation",
+                        "title": "Värde: ",
+                        "description": "Parameterns värde",
                         "type": "string"
                       },
                       "valueLookUp": {
-                        "title": "ValueLookUp",
-                        "description": "Describes the operation",
+                        "title": "Värdeuppslag",
+                        "description": "Vilket värde som ska slås upp",
                         "type": "object",
                         "properties": {
                           "type": {
@@ -309,23 +309,23 @@
                             "format": "id"
                           },
                           "name": {
-                            "title": "Name: ",
-                            "description": "Name of operation",
+                            "title": "Namn: ",
+                            "description": "Namnet på värdeuppslaget",
                             "type": "string"
                           },
                           "description": {
-                            "title": "Description: ",
-                            "description": "Describes the operation",
+                            "title": "Beskrivning: ",
+                            "description": "Beskrivning av värdeuppslaget",
                             "type": "string"
                           },
                           "schema": {
                             "title": "Schema: ",
-                            "description": "Describes the operation",
+                            "description": "Schemat till värdeuppslaget",
                             "type": "string"
                           },
                           "operandTypes": {
-                            "title": "OperandTypes: ",
-                            "description": "The zone the terrain occupies",
+                            "title": "Operandtyp: ",
+                            "description": "Olika operandtyper till värdeuppslaget",
                             "type": "string",
                             "links": {
                               "rel": "full",
@@ -333,8 +333,8 @@
                             }
                           },
                           "connectionsID": {
-                            "title": "ConnectionID: ",
-                            "description": "The zone the terrain occupies",
+                            "title": "Anslutning: ",
+                            "description": "Vilken anslutning som ska anväbndas",
                             "type": "string",
                             "links": {
                               "rel": "full",
@@ -346,8 +346,8 @@
                     }
                   },
                   "isMultiValue": {
-                    "title": "IsMultiValue: ",
-                    "description": "Describes the operation",
+                    "title": "Multi-värde: ",
+                    "description": "Om det är ett multi-värde",
                     "type": "bool"
                   }
                 },
@@ -360,19 +360,19 @@
           }
         },
         "map": {
-          "title": "Map",
-          "description": "Name of operation",
+          "title": "Mappning",
+          "description": "Operationens mappning",
           "type": "string"
         }
       }
     },
     "connectionsID": {
-      "title": "Connections",
-      "description": "Connections to different operands",
+      "title": "Anslutningar",
+      "description": "Anslutningar till olika källor",
       "type": "array",
       "items": {
-        "title": "Connection",
-        "description": "A part of the stuff you walk on.",
+        "title": "Anslutningar",
+        "description": "Anslutningar till olika källor",
         "type": "object",
         "properties": {
           "type": {
@@ -381,23 +381,23 @@
             "format": "id"
           },
           "name": {
-            "title": "Name: ",
-            "description": "Name of operation",
+            "title": "Namn: ",
+            "description": "Namnet på anslutningen",
             "type": "string"
           },
           "description": {
-            "title": "Description: ",
-            "description": "Describes the operation",
+            "title": "Beskrivning: ",
+            "description": "Beskrivning av anslutningen",
             "type": "string"
           },
           "connectionString": {
-            "title": "ConnectionString: ",
-            "description": "Name of operation",
+            "title": "Anslutningssträng: ",
+            "description": "Strängen som används för att ansluta mot aktuell källa",
             "type": "string"
           },
           "path": {
-            "title": "Path: ",
-            "description": "Name of operation",
+            "title": "Sökväg: ",
+            "description": "Anslutningens sökväg",
             "type": "string"
           }
         },
@@ -408,12 +408,12 @@
       }
     },
     "operandTypes": {
-      "title": "OperandTypes",
-      "description": "Different types of operands.",
+      "title": "Operandtyper",
+      "description": "Olika typer av operander",
       "type": "array",
       "items": {
-        "title": "OperandType",
-        "description": "A part of the stuff you walk on.",
+        "title": "Operandtyper",
+        "description": "Olika typer av operander",
         "type": "object",
         "properties": {
           "type": {
@@ -422,28 +422,28 @@
             "format": "id"
           },
           "name": {
-            "title": "Name: ",
-            "description": "Name of operation",
+            "title": "Namn: ",
+            "description": "Namnet på operandtypen",
             "type": "string"
           },
           "description": {
-            "title": "Description: ",
-            "description": "Describes the operation",
+            "title": "Beskrivning: ",
+            "description": "Brskrivning av operandtypen",
             "type": "string"
           },
           "targetType": {
-            "title": "TargetType: ",
-            "description": "Name of operation",
-            "type": "string"
+            "title": "Måltyp: ",
+            "description": "Vilket mål som operandtypen ska användas mot",
+            "enum": [ "ORACLE_TABLE", "ORACLE_VIEW", "P3E", "P3E_WOS", "P3E_PROJECT_IDS" ]
           },
           "schemaType": {
-            "title": "SchemaType: ",
-            "description": "Describes the operation",
-            "type": "string"
+            "title": "Schematyp: ",
+            "description": "Vilken typ av schema som ska användas",
+            "enum": [ "XSD", "DTD", "DESC", "TYPE" ]
           },
           "adapterId": {
-            "title": "AdapterId",
-            "description": "Name of operation",
+            "title": "Adapter",
+            "description": "Vilken adapter som operandtypen ska använda",
             "type": "object",
             "properties": {
               "type": {
@@ -452,23 +452,23 @@
                 "format": "id"
               },
               "name": {
-                "title": "Name: ",
-                "description": "Name of operation",
+                "title": "Namn: ",
+                "description": "Namnet på adaptern",
                 "type": "string"
               },
               "description": {
-                "title": "Description: ",
-                "description": "Describes the operation",
+                "title": "Beskrivning: ",
+                "description": "Beskrivning av adapter",
                 "type": "string"
               },
               "assembly": {
                 "title": "Assembly: ",
-                "description": "Name of operation",
+                "description": "Adapterns assembly",
                 "type": "string"
               },
               "adapterType": {
-                "title": "Type: ",
-                "description": "Name of operation",
+                "title": "Typ: ",
+                "description": "Vilken typ av adapter",
                 "type": "string"
               }
             }

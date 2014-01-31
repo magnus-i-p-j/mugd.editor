@@ -97,7 +97,7 @@ mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.NUM
   return parseFloat(value);
 };
 
-mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.ENUM] = function (value) {
+mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.BOOL] = function (value) {
   if (!mugd.utils.isBoolean(value)) {
     throw {'name': 'TypeMismatchException', 'reason': 'Expected bool', 'value': value};
   }
