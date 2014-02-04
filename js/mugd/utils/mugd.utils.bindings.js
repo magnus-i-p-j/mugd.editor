@@ -26,7 +26,6 @@ mugd.utils.bindings.addScaledImage = function () {
         var dy = (element.height - height) / 4;
 
         var ctx = element.getContext('2d');
-        ctx.clear();
         ctx.drawImage(img, dx, dy, width, height);
         img.onload = null;
       };
