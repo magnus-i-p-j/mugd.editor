@@ -3,37 +3,43 @@
     "type": "field",
     "name": "Field",
     "description": "A patch of land where some beets are growing.",
-    "zone": "content"
+    "zone": "content",
+    "image": "field"
   },
   {
     "type": "water",
     "name": "Water",
     "description": "A patch of blue water, untouched by the zombie apocalypse.",
-    "zone": "base"
+    "zone": "base",
+    "image": "water"
   },
   {
     "type": "hills",
     "name": "Hills",
     "description": "A patch of high hill, untouched by the zombie apocalypse.",
-    "zone": "base"
+    "zone": "base",
+    "image": "hill"
   },
   {
     "type": "house",
     "name": "House",
     "description": "A house someone used to live in. Now they're still living in it...",
-    "zone": "content"
+    "zone": "content",
+    "image": "house"
   },
   {
     "type": "grass",
     "name": "Grass",
     "description": "Some grass with only a few zombie bits.",
-    "zone": "base"
+    "zone": "base",
+    "image": "grass"
   },
   {
     "type": "fence",
     "name": "Fence",
     "description": "A rickety fence, suitable for delaying zombies while you leg it.",
-    "zone": "perimeter"
+    "zone": "perimeter",
+    "image": "fence"
   }
 ], "zone": [
   {
@@ -190,7 +196,40 @@
     "name": "Food",
     "description": "Turnips"
   }
-], "artifact": [], "personnel": [], "bounds": {
+], "artifact": [], "personnel": [], "images": [
+  {
+    "type": "fence_2",
+    "url": "tiles/fence_2.png"
+  },
+  {
+    "type": "fence",
+    "url": "tiles/fence.png"
+  },
+  {
+    "type": "field",
+    "url": "tiles/field.png"
+  },
+  {
+    "type": "grass",
+    "url": "tiles/grass.png"
+  },
+  {
+    "type": "hill",
+    "url": "tiles/hill.png"
+  },
+  {
+    "type": "house",
+    "url": "tiles/house.png"
+  },
+  {
+    "type": "tiles",
+    "url": "tiles/tiles.png"
+  },
+  {
+    "type": "water",
+    "url": "tiles/water.png"
+  }
+], "bounds": {
   "starting_resources": [
     {
       "type": "wood",
