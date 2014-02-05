@@ -23,6 +23,10 @@ mugd.editor.EnumViewModel = function (schema, resolver) {
 
 goog.inherits(mugd.editor.EnumViewModel, mugd.editor.AbstractViewModel);
 
+mugd.editor.EnumViewModel.prototype['toJSON'] = function () {
+  return this['value']();
+};
+
 /**
  * @param {Object} schema
  * @return {boolean}
