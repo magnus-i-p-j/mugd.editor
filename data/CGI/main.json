@@ -41,21 +41,45 @@
     "zone": "perimeter",
     "image": "fence"
   }
-], "zone": [
+], "connectionsID": [
   {
-    "type": "content",
-    "name": "Content",
-    "description": "Inner parts of tile"
+    "type": "ifs",
+    "name": "IFS",
+    "description": "Connection to IFS",
+    "connectionString": "blablabla",
+    "path": "pathpathpath"
   },
   {
-    "type": "perimeter",
-    "name": "Perimeter",
-    "description": "The stuff around the tile"
+    "type": "primavera",
+    "name": "Primavera",
+    "description": "Connection to Primavera",
+    "connectionString": "blablabla",
+    "path": "pathpathpath"
+  }
+], "operandTypes": [
+  {
+    "type": "Operandtyp 1",
+    "name": "Olle",
+    "description": "Operand type for Olle",
+    "adapterId":{
+      "type": "adapterid1",
+      "name": "adapter253",
+      "description": "Adapter belonging to the operand.",
+      "assembly": "assembly1",
+      "adapterType": "adaptertype1"
+    }
   },
   {
-    "type": "base",
-    "name": "Base",
-    "description": "The stuff the tile is made of"
+    "type": "Operandtyp 2",
+    "name": "Per",
+    "description": "Operand type for Per",
+    "adapterId":{
+      "type": "adapterid2",
+      "name": "adapter3293",
+      "description": "Adapter belonging to the operand.",
+      "assembly": "assembly2",
+      "adapterType": "adaptertype2"
+    }
   }
 ], "project": [
   {
