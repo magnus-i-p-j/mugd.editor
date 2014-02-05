@@ -8,6 +8,8 @@ goog.require('mugd.editor.FullLinkViewModel');
 goog.require('mugd.editor.EnumViewModel');
 goog.require('mugd.editor.LinkResolver');
 
+goog.require('mugd.utils.bindings');
+
 /**
  * @param {!Object} schema
  * @param {*} data
@@ -57,6 +59,9 @@ mugd.editor.init = function (rootNode, config) {
   infuser.defaults.templatePrefix = 'tpl/editor/';
   var vm = new mugd.editor.EditorViewModel(config.schema, config.data);
   ko.applyBindings(vm, rootNode);
+
+  mugd.utils.bindings.addScaledImage();
+
   return vm;
 };
 

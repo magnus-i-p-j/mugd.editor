@@ -11,6 +11,9 @@ mugd.editor.EditorViewModel = function (schema, data) {
   this['schemaUri'] = ko.observable(schema);
   this['dataUri'] = ko.observable(data);
   this['model'] = ko.observable();
+  this['ui'] = {
+    'selected': ko.observable()
+  };
 };
 
 mugd.editor.EditorViewModel.prototype['loadModel'] = function () {
