@@ -16,13 +16,16 @@ mugd.editor.PrimitiveViewModel = function (schema, resolver) {
   goog.base(this, schema, resolver);
 
   /**
-   * @type {string|number}
+   * @type {function(*=):(*)}
    * @private
    */
   var _value = ko.observable();
+  /**
+   * @type {function(string=):(string|number|boolean)}
+   */
   var validateValueCallback = mugd.editor.PrimitiveViewModel.validateValue[this['type']];
   /**
-   * @type {function(string=):string|number}
+   * @type {function(string=):(string|number|boolean)}
    */
   this['value'] = ko.computed(
       {
@@ -70,7 +73,8 @@ mugd.editor.PrimitiveViewModel.prototype.fetchSplitPath = function (path, index)
 mugd.editor.PrimitiveViewModel.isPrimitiveValue = function (schema) {
   return goog.array.contains([
     mugd.editor.constants.ValueType.STRING,
-    mugd.editor.constants.ValueType.NUMBER
+    mugd.editor.constants.ValueType.NUMBER,
+    mugd.editor.constants.ValueType.BOOLEAN
 //      mugd.editor.constants.ValueType.STRING,
 //      mugd.editor.constants.ValueType.STRING
   ],
@@ -78,6 +82,9 @@ mugd.editor.PrimitiveViewModel.isPrimitiveValue = function (schema) {
   );
 };
 
+/**
+ * @inheritDoc
+ */
 mugd.editor.PrimitiveViewModel.prototype.disposeInternal = function(){
   goog.base(this, 'disposeInternal');
 };
@@ -96,5 +103,11 @@ mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.NUM
   return parseFloat(value);
 };
 
+mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.BOOLEAN] = function (value) {
+  if (!mugd.utils.isBoolean(value)) {
+    throw {'name': 'TypeMismatchException', 'reason': 'Expected boolean', 'value': value};
+  }
+  return !!value;
+};
 
 

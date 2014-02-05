@@ -9,6 +9,14 @@ mugd.utils.isNumber = function(n) {
 }
 
 /**
+ * @param {*} b
+ * @returns {boolean}
+ */
+mugd.utils.isBoolean = function(b) {
+  return b.constructor === Boolean;
+};
+
+/**
  * @param {string=} prefix
  * @param {string=} separator
  * @return {!mugd.utils.guid}

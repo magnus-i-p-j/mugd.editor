@@ -5,6 +5,7 @@ goog.require('mugd.editor.PrimitiveViewModel');
 goog.require('mugd.editor.ObjectViewModel');
 goog.require('mugd.editor.ArrayViewModel');
 goog.require('mugd.editor.FullLinkViewModel');
+goog.require('mugd.editor.EnumViewModel');
 goog.require('mugd.editor.LinkResolver');
 
 goog.require('mugd.utils.bindings');
@@ -31,6 +32,9 @@ mugd.editor._getModel = function (schema, resolver) {
   if (mugd.editor.FullLinkViewModel.isFullLinkValue(schema)) {
     return new mugd.editor.FullLinkViewModel(schema, resolver);
   }
+  if (mugd.editor.EnumViewModel.isEnumValue(schema)) {
+    return new mugd.editor.EnumViewModel(schema, resolver);
+  }
   if (mugd.editor.PrimitiveViewModel.isPrimitiveValue(schema)) {
     return new mugd.editor.PrimitiveViewModel(schema, resolver);
   }
@@ -42,12 +46,14 @@ mugd.editor._getModel = function (schema, resolver) {
       return mugd.editor._getModel(schema['items'], resolver);
     });
   }
+
   throw {'name': 'TypeMismatchException', 'reason': 'no such type supported', 'schema': schema};
 };
 
 /**
  * @param {!Element} rootNode
  * @param {!Object.<string,string>} config
+ * @return {mugd.editor.EditorViewModel}
  */
 mugd.editor.init = function (rootNode, config) {
   infuser.defaults.templatePrefix = 'tpl/editor/';

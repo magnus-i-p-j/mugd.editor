@@ -48,12 +48,8 @@ mugd.editor.ArrayViewModel.prototype['toJSON'] = function () {
  */
 mugd.editor.ArrayViewModel.prototype['setValue'] = function (value) {
   if (goog.isArray(value)) {
-//    value = value;
     var newValue = goog.array.map(
-        ( /**
-         * @type {!Array}
-         */
-        value ),
+      /** @type {!Array}  */(value),
         function (data) {
           var model = this._createSubModel();
           model['setValue'](data);
@@ -98,6 +94,9 @@ mugd.editor.ArrayViewModel.prototype._createSubModel = function () {
   return newModel;
 };
 
+/**
+ * @inheritDoc
+ */
 mugd.editor.ArrayViewModel.prototype.disposeInternal = function () {
   var value = this['value']().slice();
   goog.array.forEach(value, function (model) {

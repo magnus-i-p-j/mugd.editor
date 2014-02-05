@@ -58,6 +58,9 @@ mugd.editor.AbstractViewModel = function (schema, resolver) {
 
 goog.inherits(mugd.editor.AbstractViewModel, goog.Disposable);
 
+/**
+ * @inheritDoc
+ */
 mugd.editor.AbstractViewModel.prototype.disposeInternal = function () {
   if (this.links) {
     goog.array.forEach(this.links, function (link) {

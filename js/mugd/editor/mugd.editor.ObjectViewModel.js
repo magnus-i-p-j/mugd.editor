@@ -79,6 +79,9 @@ mugd.editor.ObjectViewModel.isObjectValue = function (schema) {
   return schema.type === mugd.editor.constants.ValueType.OBJECT;
 };
 
+/**
+ * @inheritDoc
+ */
 mugd.editor.ObjectViewModel.prototype.disposeInternal = function () {
   goog.object.forEach(this['value'](), function (model) {
     model.dispose();

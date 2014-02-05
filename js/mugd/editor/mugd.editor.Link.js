@@ -67,6 +67,9 @@ mugd.editor.Link = function (href) {
 
 goog.inherits(mugd.editor.Link, goog.Disposable);
 
+/**
+ * @inheritDoc
+ */
 mugd.editor.Link.prototype.disposeInternal = function () {
   this._disposed(true);
   goog.base(this, 'disposeInternal');
