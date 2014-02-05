@@ -35,7 +35,7 @@
               "rel": "full",
               "href": "game://zone/{@}"
             }
-          },s
+          },
           "image": {
             "title": "Image",
             "description": "What the tile looks like",
