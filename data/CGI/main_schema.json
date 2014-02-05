@@ -1,402 +1,492 @@
 {
-  "title": "Concepts",
+  "title": "Skapa operation",
   "description": "The stuff people walk on.",
   "type": "object",
   "properties": {
-    "terrain": {
-      "title": "Terrains",
-      "description": "The stuff people walk on.",
+    "operation": {
+      "description": "Operationerna i PIFS",
+      "type": "object",
+      "title": "Operation",
+      "properties": {
+        "type": {
+          "title": "ID: ",
+          "type": "string",
+          "format": "id"
+        },
+        "name": {
+          "title": "Namn: ",
+          "description": "Operationens namn",
+          "type": "string"
+        },
+        "description": {
+          "title": "Beskrivning: ",
+          "description": "Beskrivning av operationen",
+          "type": "string",
+          "format": "description"
+        },
+        "batch": {
+          "title": "Bakgrundsjobb: ",
+          "description": "Om operation ska köras som ett bakgrundsjobb",
+          "type": "boolean"
+        },
+        "p3eDirectionImport": {
+          "title": "Importera till P3E: ",
+          "description": "Om det ska importeras till P3E",
+          "type": "boolean"
+        },
+        "sourceOperand": {
+          "title": "Källoperand",
+          "description": "Källoperanden till en operation",
+          "type": "object",
+          "properties": {
+            "type": {
+              "title": "ID: ",
+              "type": "string",
+              "format": "id"
+            },
+            "name": {
+              "title": "Namn: ",
+              "description": "Operandens namn",
+              "type": "string"
+            },
+            "description": {
+              "title": "Beskrivning: ",
+              "description": "Beskrivning av operanden",
+              "type": "string",
+              "format": "description"
+            },
+            "schema": {
+              "title": "Schema: ",
+              "description": "Schema till operanden",
+              "type": "string"
+            },
+            "operandTypes": {
+              "title": "Operandtyp: ",
+              "description": "Olika typer av operander",
+              "type": "string",
+              "links": {
+                "rel": "full",
+                "href": "editor://operandTypes/{@}"
+              }
+            },
+            "connectionsID": {
+              "title": "Anslutning: ",
+              "description": "Hur operanden ska ansluta",
+              "type": "string",
+              "links": {
+                "rel": "full",
+                "href": "editor://connection/{@}"
+              }
+            },
+            "parameters":{
+              "title": "Parametrar",
+              "description": "Källoperandens parametrar",
+              "type": "array",
+              "items": {
+                "title": "Parameter",
+                "description": "Källoperandens parametrar",
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "title": "ID",
+                    "type": "string",
+                    "format": "id"
+                  },
+                  "name": {
+                    "title": "Namn: ",
+                    "description": "Parameterns namn",
+                    "type": "string"
+                  },
+                  "description": {
+                    "title": "Beskrivning: ",
+                    "description": "Beskrivning av parametern",
+                    "type": "string",
+                    "format": "description"
+                  },
+                  "uiVisible": {
+                    "title": "Synlig i gränssnitt: ",
+                    "description": "Om parametern ska synas i gränssnittet",
+                    "type": "booleanean"
+                  },
+                  "valueType": {
+                    "title": "Värdetyp: ",
+                    "description": "Vilken värdetyp som parametern ska ha",
+                    "enum": [ "Bool", "Int", "Double", "String", "DateTime" ]
+                  },
+                  "field": {
+                    "title": "Fält: ",
+                    "description": "Värdet som operatorn appliceras på",
+                    "type": "string"
+                  },
+                  "operator": {
+                    "title": "Operator: ",
+                    "description": "Vilken operator som ska användas",
+                    "enum": [ "<", ">", "<=", ">=", "=", "!=", "IN", "NOT IN" ]
+                  },
+                  "parameterValueID": {
+                    "title": "Parametervärde",
+                    "description": "Parameterns värde",
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "title": "ID: ",
+                        "type": "string",
+                        "format": "id"
+                      },
+                      "value": {
+                        "title": "Värde: ",
+                        "description": "Parameterns värde",
+                        "type": "string"
+                      },
+                      "valueLookUp": {
+                        "title": "Värdeuppslag",
+                        "description": "Vilket värde som ska slås upp",
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "title": "ID: ",
+                            "type": "string",
+                            "format": "id"
+                          },
+                          "name": {
+                            "title": "Namn: ",
+                            "description": "Namnet på värdeuppslaget",
+                            "type": "string"
+                          },
+                          "description": {
+                            "title": "Beskrivning: ",
+                            "description": "Beskrivning av värdeuppslaget",
+                            "type": "string",
+                            "format": "description"
+                          },
+                          "schema": {
+                            "title": "Schema: ",
+                            "description": "Schemat till värdeuppslaget",
+                            "type": "string"
+                          },
+                          "operandTypes": {
+                            "title": "Operandtyp: ",
+                            "description": "Olika operandtyper till värdeuppslaget",
+                            "type": "string",
+                            "links": {
+                              "rel": "full",
+                              "href": "editor://operandTypes/{@}"
+                            }
+                          },
+                          "connectionsID": {
+                            "title": "Anslutning: ",
+                            "description": "Vilken anslutning som ska användas",
+                            "type": "string",
+                            "links": {
+                              "rel": "full",
+                              "href": "editor://connection/{@}"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "isMultiValue": {
+                    "title": "Multi-värde: ",
+                    "description": "Om det är ett multi-värde",
+                    "type": "booleanean"
+                  }
+                },
+                "links": {
+                  "rel": "self",
+                  "href": "editor://parameters/{type}"
+                }
+              }
+            }
+          }
+        },
+        "targetOperand": {
+          "title": "Måloperand",
+          "description": "Måloperanden till en operation",
+          "type": "object",
+          "properties": {
+            "type": {
+              "title": "ID: ",
+              "type": "string",
+              "format": "id"
+            },
+            "name": {
+              "title": "Namn: ",
+              "description": "Operandens namn",
+              "type": "string"
+            },
+            "description": {
+              "title": "Beskrivning: ",
+              "description": "Beskrivning av operanden",
+              "type": "string",
+              "format": "description"
+            },
+            "schema": {
+              "title": "Schema: ",
+              "description": "Schemat till operanden",
+              "type": "string"
+            },
+            "operandTypes": {
+              "title": "Operandtyp: ",
+              "description": "Vilken typ av operand som ska användas",
+              "type": "string",
+              "links": {
+                "rel": "full",
+                "href": "editor://operandTypes/{@}"
+              }
+            },
+            "connectionsID": {
+              "title": "Anslutning: ",
+              "description": "Vilken anslutning som ska användas",
+              "type": "string",
+              "links": {
+                "rel": "full",
+                "href": "editor://connection/{@}"
+              }
+            },
+            "parameters":{
+              "title": "Parametrar",
+              "description": "Måloperandens parametrar",
+              "type": "array",
+              "items": {
+                "title": "Parameter",
+                "description": "Operandens parametrar",
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "title": "ID: ",
+                    "type": "string",
+                    "format": "id"
+                  },
+                  "name": {
+                    "title": "Namn: ",
+                    "description": "Parameterns namn",
+                    "type": "string"
+                  },
+                  "description": {
+                    "title": "Beskrivning: ",
+                    "description": "Beskrivning av parametern",
+                    "type": "string",
+                    "format": "description"
+                  },
+                  "uiVisible": {
+                    "title": "Synlig i gränssnitt: ",
+                    "description": "Om parametern ska synas i gränssnittet",
+                    "type": "booleanean"
+                  },
+                  "valueType": {
+                    "title": "Värdetyp: ",
+                    "description": "Vilken värdetyp som parametern ska ha",
+                    "enum": [ "Bool", "Int", "Double", "String", "DateTime" ]
+                  },
+                  "field": {
+                    "title": "Fält: ",
+                    "description": "Värdet som operatorn ska appliceras på",
+                    "type": "string"
+                  },
+                  "operator": {
+                    "title": "Operator: ",
+                    "description": "Vilken operator som ska användas",
+                    "enum": [ "<", ">", "<=", ">=", "=", "!=", "IN", "NOT IN" ]
+                  },
+                  "parameterValueID": {
+                    "title": "Parametervärde",
+                    "description": "Parameterns värde",
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "title": "ID: ",
+                        "type": "string",
+                        "format": "id"
+                      },
+                      "value": {
+                        "title": "Värde: ",
+                        "description": "Parameterns värde",
+                        "type": "string"
+                      },
+                      "valueLookUp": {
+                        "title": "Värdeuppslag",
+                        "description": "Vilket värde som ska slås upp",
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "title": "ID: ",
+                            "type": "string",
+                            "format": "id"
+                          },
+                          "name": {
+                            "title": "Namn: ",
+                            "description": "Namnet på värdeuppslaget",
+                            "type": "string"
+                          },
+                          "description": {
+                            "title": "Beskrivning: ",
+                            "description": "Beskrivning av värdeuppslaget",
+                            "type": "string",
+                            "format": "description"
+                          },
+                          "schema": {
+                            "title": "Schema: ",
+                            "description": "Schemat till värdeuppslaget",
+                            "type": "string"
+                          },
+                          "operandTypes": {
+                            "title": "Operandtyp: ",
+                            "description": "Olika operandtyper till värdeuppslaget",
+                            "type": "string",
+                            "links": {
+                              "rel": "full",
+                              "href": "editor://operandTypes/{@}"
+                            }
+                          },
+                          "connectionsID": {
+                            "title": "Anslutning: ",
+                            "description": "Vilken anslutning som ska anväbndas",
+                            "type": "string",
+                            "links": {
+                              "rel": "full",
+                              "href": "editor://connection/{@}"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "isMultiValue": {
+                    "title": "Multi-värde: ",
+                    "description": "Om det är ett multi-värde",
+                    "type": "booleanean"
+                  }
+                },
+                "links": {
+                  "rel": "self",
+                  "href": "editor://parameters/{type}"
+                }
+              }
+            }
+          }
+        },
+        "map": {
+          "title": "Mappning",
+          "description": "Operationens mappning",
+          "type": "string"
+        }
+      }
+    },
+    "connectionsID": {
+      "title": "Anslutningar",
+      "description": "Anslutningar till olika källor",
       "type": "array",
       "items": {
-        "title": "Terrain",
-        "description": "Some sort of stuff to walk on.",
+        "title": "Anslutningar",
+        "description": "Anslutningar till olika källor",
         "type": "object",
         "properties": {
           "type": {
-            "title": "Type",
+            "title": "ID: ",
             "type": "string",
             "format": "id"
           },
           "name": {
-            "title": "Name",
-            "description": "Visible name of terrain",
+            "title": "Namn: ",
+            "description": "Namnet på anslutningen",
             "type": "string"
           },
           "description": {
-            "title": "Description",
-            "description": "Describes the terrain",
-            "type": "string"
-          },
-          "zone": {
-            "title": "Zone",
-            "description": "The zone the terrain occupies",
+            "title": "Beskrivning: ",
+            "description": "Beskrivning av anslutningen",
             "type": "string",
-            "links": {
-              "rel": "full",
-              "href": "game://zone/{@}"
-            }
+            "format": "description"
           },
-          "image": {
-            "title": "Image",
-            "description": "What the tile looks like",
+          "connectionString": {
+            "title": "Anslutningssträng: ",
+            "description": "Strängen som används för att ansluta mot aktuell källa",
+            "type": "string"
+          },
+          "path": {
+            "title": "Sökväg: ",
+            "description": "Anslutningens sökväg",
+            "type": "string"
+          }
+        },
+        "links": {
+          "rel": "self",
+          "href": "editor://connection/{type}"
+        }
+      }
+    },
+    "operandTypes": {
+      "title": "Operandtyper",
+      "description": "Olika typer av operander",
+      "type": "array",
+      "items": {
+        "title": "Operandtyper",
+        "description": "Olika typer av operander",
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "ID: ",
             "type": "string",
-            "format": "image",
-            "links": {
-              "rel": "full",
-              "href": "game://image/{@}"
-            }
-          }
-        },
-        "links": {
-          "rel": "self",
-          "href": "game://terrain/{type}"
-        }
-      }
-    },
-    "zone": {
-      "title": "Zones",
-      "description": "The different zones available in tiles",
-      "type": "array",
-      "items": {
-        "title": "Zone",
-        "description": "A part of the stuff you walk on.",
-        "type": "object",
-        "properties": {
-          "type": {
-            "title": "Type",
-            "type": "string"
+            "format": "id"
           },
           "name": {
-            "title": "Name",
-            "description": "Visible name of zone",
+            "title": "Namn: ",
+            "description": "Namnet på operandtypen",
             "type": "string"
           },
           "description": {
-            "title": "Description",
-            "description": "Describes the zone",
-            "type": "string"
-          }
-        },
-        "links": {
-          "rel": "self",
-          "href": "game://zone/{type}"
-        }
-      }
-    },
-    "project": {
-      "title": "Projects",
-      "description": "Change things for the better",
-      "type": "array",
-      "items": {
-        "title": "Project",
-        "description": "A project that does stuff",
-        "type": "object",
-        "properties": {
-          "type": {
-            "title": "Type",
-            "type": "string"
+            "title": "Beskrivning: ",
+            "description": "Brskrivning av operandtypen",
+            "type": "string",
+            "format": "description"
           },
-          "name": {
-            "title": "Name",
-            "description": "Visible name of project",
-            "type": "string"
+          "targetType": {
+            "title": "Måltyp: ",
+            "description": "Vilket mål som operandtypen ska användas mot",
+            "enum": [ "ORACLE_TABLE", "ORACLE_VIEW", "P3E", "P3E_WOS", "P3E_PROJECT_IDS" ]
           },
-          "description": {
-            "title": "Description",
-            "description": "Describes the terrain",
-            "type": "string"
+          "schemaType": {
+            "title": "Schematyp: ",
+            "description": "Vilken typ av schema som ska användas",
+            "enum": [ "XSD", "DTD", "DESC", "TYPE" ]
           },
-          "prerequisites": {
-            "description": "Lists the prerequisites for the project",
-            "title": "Prerequisites",
-            "type": "object",
-            "properties": {
-              "terrain": {
-                "type": "array",
-                "title": "Terrains",
-                "description": "The terrain types this project is applicable to",
-                "items": {
-                  "title": "Terrain",
-                  "description": "One of the possible terrains",
-                  "type": "string",
-                  "links": {
-                    "rel": "full",
-                    "href": "game://terrain/{@}"
-                  }
-                }
-              }
-            }
-          },
-          "effects": {
-            "type": "object",
-            "title": "Effects",
-            "description": "The effects this project has",
-            "properties": {
-              "effect_stockpile": {
-                "title": "Change stockpile",
-                "type": "array",
-                "items": {
-                  "title": "Resource",
-                  "description": "One of the resources",
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "title": "Resource",
-                      "description": "The gained resource",
-                      "type": "string",
-                      "links": {
-                        "rel": "full",
-                        "href": "game://stockpile/{@}"
-                      }
-                    },
-                    "magnitude": {
-                      "title": "Magnitude",
-                      "description": "The amount gained",
-                      "type": "number"
-                    },
-                    "variation": {
-                      "title": "Variation",
-                      "description": "The variation in amount gained",
-                      "type": "number"
-                    }
-                  }
-                },
-                "description": "Gain this stuff"
-              },
-              "effect_terrain": {
-                "title": "Change terrain",
-                "description": "Change to this terrain",
-                "type": "string",
-                "links": {
-                  "rel": "full",
-                  "href": "game://terrain/{@}"
-                }
-              }
-            }
-          },
-          "cost": {
-            "description": "Lists the cost for the project",
-            "title": "Costs",
-            "type": "object",
-            "properties": {
-              "stockpile": {
-                "type": "array",
-                "title": "Stockpiled resources",
-                "description": "Stuff needed to build",
-                "items": {
-                  "title": "Resource",
-                  "description": "One of the required resources",
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "title": "Resource",
-                      "description": "The required resource",
-                      "type": "string",
-                      "links": {
-                        "rel": "full",
-                        "href": "game://stockpile/{@}"
-                      }
-                    },
-                    "amount": {
-                      "title": "Amount",
-                      "description": "The amount required",
-                      "type": "number"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "actor": {
-      "title": "Actors",
-      "description": "Entities affecting the world",
-      "type": "array",
-      "items": {
-        "title": "Actor",
-        "description": "An actor",
-        "type": "object",
-        "properties": {
-          "type": {
-            "title": "Type",
-            "type": "string"
-          },
-          "name": {
-            "title": "Name",
-            "description": "Visible name of actor",
-            "type": "string"
-          },
-          "description": {
-            "title": "Description",
-            "description": "Describes the actor",
-            "type": "string"
-          }
-        }
-      }
-    },
-    "tile": {
-      "title": "Tiles",
-      "description": "Tiles in the world",
-      "type": "array",
-      "items": {
-        "title": "Tile",
-        "description": "A tile",
-        "type": "object",
-        "properties": {
-          "type": {
-            "title": "Type",
-            "type": "string"
-          },
-          "name": {
-            "title": "Name",
-            "description": "Visible name of tile",
-            "type": "string"
-          },
-          "description": {
-            "title": "Description",
-            "description": "Describes the tile",
-            "type": "string"
-          }
-        }
-      }
-    },
-    "stockpile": {
-      "title": "Stockpile",
-      "description": "Natural resources e.g",
-      "type": "array",
-      "items": {
-        "title": "Stockpile",
-        "description": "A stockpiled resource",
-        "type": "object",
-        "properties": {
-          "type": {
-            "title": "Type",
-            "type": "string"
-          },
-          "name": {
-            "title": "Name",
-            "description": "Visible name of stockpile",
-            "type": "string"
-          },
-          "description": {
-            "title": "Description",
-            "description": "Describes the stockpile",
-            "type": "string"
-          }
-        },
-        "links": {
-          "rel": "self",
-          "href": "game://stockpile/{type}"
-        }
-      }
-    },
-    "artifact": {
-      "title": "Artifacts",
-      "description": "Unique items",
-      "type": "array",
-      "items": {
-        "title": "Artifact",
-        "description": "Unique item",
-        "type": "object",
-        "properties": {
-          "type": {
-            "title": "Type",
-            "type": "string"
-          },
-          "name": {
-            "title": "Name",
-            "description": "Visible name of artifact",
-            "type": "string"
-          },
-          "description": {
-            "title": "Description",
-            "description": "Describes the artifact",
-            "type": "string"
-          }
-        }
-      }
-    },
-    "personnel": {
-      "title": "Personnel",
-      "description": "Persons populating the world",
-      "type": "array",
-      "items": {
-        "title": "Character",
-        "description": "A character",
-        "type": "object",
-        "properties": {
-          "type": {
-            "title": "Type",
-            "type": "string"
-          },
-          "name": {
-            "title": "Name",
-            "description": "Visible name of character",
-            "type": "string"
-          },
-          "description": {
-            "title": "Description",
-            "description": "Describes the character",
-            "type": "string"
-          }
-        }
-      }
-    },
-    "images": {
-      "title": "Images",
-      "description": "Images available",
-      "type": "array",
-      "items": {
-        "title": "Image",
-        "description": "An image",
-        "type": "object",
-        "properties": {
-          "type": {
-            "title": "Type",
-            "type": "string"
-          },
-          "url": {
-            "title": "Url",
-            "description": "The url where the image can be found",
-            "type": "string"
-          }
-        },
-        "links": {
-          "rel": "self",
-          "href": "game://image/{type}"
-        }
-      }
-    },
-    "bounds": {
-      "title": "Bounds",
-      "description": "Rules affecting the start and end of the game",
-      "type": "object",
-      "properties": {
-        "starting_resources": {
-          "type": "array",
-          "title": "Starting resources",
-          "description": "Resources the player gets at the beginning",
-          "items": {
-            "title": "Resource",
-            "description": "One of the provided resources",
+          "adapterId": {
+            "title": "Adapter",
+            "description": "Vilken adapter som operandtypen ska använda",
             "type": "object",
             "properties": {
               "type": {
-                "title": "Resource",
+                "title": "ID: ",
                 "type": "string",
-                "links": {
-                  "rel": "full",
-                  "href": "game://stockpile/{@}"
-                }
+                "format": "id"
               },
-              "amount": {
-                "title": "Amount",
-                "type": "number"
+              "name": {
+                "title": "Namn: ",
+                "description": "Namnet på adaptern",
+                "type": "string"
+              },
+              "description": {
+                "title": "Beskrivning: ",
+                "description": "Beskrivning av adapter",
+                "type": "string",
+                "format": "description"
+              },
+              "assembly": {
+                "title": "Assembly: ",
+                "description": "Adapterns assembly",
+                "type": "string"
+              },
+              "adapterType": {
+                "title": "Typ: ",
+                "description": "Vilken typ av adapter",
+                "type": "string"
               }
             }
           }
+        },
+        "links": {
+          "rel": "self",
+          "href": "editor://operandTypes/{type}"
         }
       }
     }
