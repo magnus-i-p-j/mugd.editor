@@ -2,7 +2,7 @@
   "id": "edit",
   "inputs": ["js/mugd/editor/mugd.editor.js"],
   "paths": ["js"],
-  "mode": "RAW",
+  "mode": "SIMPLE",
   "level": "VERBOSE",
   "externs": [
     "libs/externs/knockout-externs.js",
@@ -10,7 +10,6 @@
     "libs/externs/console-externs.js",
     "libs/externs/templates-externs.js",
     "libs/externs/knockout-external_template-externs.js",
-    "libs/externs/Blob-externs.js",
-    "libs/externs/json-externs.js"
+    "libs/externs/Blob-externs.js"
   ]
 }

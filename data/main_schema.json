@@ -21,17 +21,18 @@
         "description": {
           "title": "Beskrivning: ",
           "description": "Beskrivning av operationen",
-          "type": "string"
+          "type": "string",
+          "format": "description"
         },
         "batch": {
           "title": "Bakgrundsjobb: ",
           "description": "Om operation ska köras som ett bakgrundsjobb",
-          "type": "bool"
+          "type": "boolean"
         },
         "p3eDirectionImport": {
           "title": "Importera till P3E: ",
           "description": "Om det ska importeras till P3E",
-          "type": "bool"
+          "type": "boolean"
         },
         "sourceOperand": {
           "title": "Källoperand",
@@ -51,7 +52,8 @@
             "description": {
               "title": "Beskrivning: ",
               "description": "Beskrivning av operanden",
-              "type": "string"
+              "type": "string",
+              "format": "description"
             },
             "schema": {
               "title": "Schema: ",
@@ -98,12 +100,13 @@
                   "description": {
                     "title": "Beskrivning: ",
                     "description": "Beskrivning av parametern",
-                    "type": "string"
+                    "type": "string",
+                    "format": "description"
                   },
                   "uiVisible": {
                     "title": "Synlig i gränssnitt: ",
                     "description": "Om parametern ska synas i gränssnittet",
-                    "type": "bool"
+                    "type": "booleanean"
                   },
                   "valueType": {
                     "title": "Värdetyp: ",
@@ -153,7 +156,8 @@
                           "description": {
                             "title": "Beskrivning: ",
                             "description": "Beskrivning av värdeuppslaget",
-                            "type": "string"
+                            "type": "string",
+                            "format": "description"
                           },
                           "schema": {
                             "title": "Schema: ",
@@ -185,7 +189,7 @@
                   "isMultiValue": {
                     "title": "Multi-värde: ",
                     "description": "Om det är ett multi-värde",
-                    "type": "bool"
+                    "type": "booleanean"
                   }
                 },
                 "links": {
@@ -214,7 +218,8 @@
             "description": {
               "title": "Beskrivning: ",
               "description": "Beskrivning av operanden",
-              "type": "string"
+              "type": "string",
+              "format": "description"
             },
             "schema": {
               "title": "Schema: ",
@@ -261,12 +266,13 @@
                   "description": {
                     "title": "Beskrivning: ",
                     "description": "Beskrivning av parametern",
-                    "type": "string"
+                    "type": "string",
+                    "format": "description"
                   },
                   "uiVisible": {
                     "title": "Synlig i gränssnitt: ",
                     "description": "Om parametern ska synas i gränssnittet",
-                    "type": "bool"
+                    "type": "booleanean"
                   },
                   "valueType": {
                     "title": "Värdetyp: ",
@@ -316,7 +322,8 @@
                           "description": {
                             "title": "Beskrivning: ",
                             "description": "Beskrivning av värdeuppslaget",
-                            "type": "string"
+                            "type": "string",
+                            "format": "description"
                           },
                           "schema": {
                             "title": "Schema: ",
@@ -348,7 +355,7 @@
                   "isMultiValue": {
                     "title": "Multi-värde: ",
                     "description": "Om det är ett multi-värde",
-                    "type": "bool"
+                    "type": "booleanean"
                   }
                 },
                 "links": {
@@ -388,7 +395,8 @@
           "description": {
             "title": "Beskrivning: ",
             "description": "Beskrivning av anslutningen",
-            "type": "string"
+            "type": "string",
+            "format": "description"
           },
           "connectionString": {
             "title": "Anslutningssträng: ",
@@ -429,7 +437,8 @@
           "description": {
             "title": "Beskrivning: ",
             "description": "Brskrivning av operandtypen",
-            "type": "string"
+            "type": "string",
+            "format": "description"
           },
           "targetType": {
             "title": "Måltyp: ",
@@ -459,7 +468,8 @@
               "description": {
                 "title": "Beskrivning: ",
                 "description": "Beskrivning av adapter",
-                "type": "string"
+                "type": "string",
+                "format": "description"
               },
               "assembly": {
                 "title": "Assembly: ",

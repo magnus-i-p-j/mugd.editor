@@ -10,9 +10,7 @@ mugd.editor.constants.ValueType = {
   'NUMBER': 'number',
   'NULL': 'null',
   'OBJECT': 'object',
-  'STRING': 'string',
-  'ENUM': 'enum',
-  'BOOL': 'bool'
+  'STRING': 'string'
 };
 
 /**
