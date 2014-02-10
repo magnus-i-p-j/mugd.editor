@@ -1,4 +1,9 @@
 <label data-bind="attr: {title:description}">
   <span class="label" data-bind="text: title"></span>
+  <!-- ko if: value().length < 20 -->
   <input class="value" type="text" data-bind="value: value" />
+  <!-- /ko -->
+  <!-- ko ifnot: value().length < 20 -->
+  <textarea class="value" data-bind="value: value" ></textarea>
+  <!-- /ko -->
 </label>

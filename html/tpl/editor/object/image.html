@@ -1,0 +1,6 @@
+<section data-bind="css: modelState, click: function () {console.log($data); $root.ui.selected($data)}" class="object_image">
+  <div data-bind="foreach: properties" class="properties">
+    <div data-bind="template: { name: template()  }"></div>
+  </div>
+  <canvas class="icon" data-bind="scaledImage: value().url.value()"></canvas>
+</section>

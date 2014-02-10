@@ -1,10 +1,21 @@
-<div class="source_selector">
-  <label><span>Schema URI:</span><input type="text" data-bind="value: schemaUri" /></label>
-  <label><span>Data URI:</span><input type="text" data-bind="value: dataUri" /></label>
-  <button data-bind="click: loadModel">Load model</button>
-</div>
-<div data-bind="with: model">
-  <button data-bind="click: saveModel">Save model</button>
-  <div data-bind="template: { name: template() }">
+<section id="editor_tools" data-bind="css: tools.state">
+  <div class="ux top-left expand" data-bind="click: function() {tools.state('expanded')}">+</div>
+  <div class="ux top-left collapse" data-bind="click: function() {tools.state('collapsed')}">-</div>
+  <label class="row"><span>Schema URI:</span><input type="text" data-bind="value: schemaUri"/></label>
+  <label class="row"><span>Data URI:</span><input type="text" data-bind="value: dataUri"/></label>
+  <div class="buttons">
+    <button data-bind="click: loadModel">Load model</button>
+    <!-- ko with: model -->
+    <button data-bind="click: saveModel">Save model</button>
+    <!-- /ko -->
   </div>
-</div>
+</section>
+<!-- ko if: model() -->
+<section id="root_data" data-bind="template: { 'name': model().template(), 'data': model() }">
+</section>
+<!-- /ko -->
+<section id="selected_viewer" class="column">
+  <!-- ko if: (ui.selected() && ui.selected().template) -->
+  <div data-bind="template: { name: ui.selected().template() + '/selected', data:ui.selected() }"></div>
+  <!-- /ko -->
+</section>

@@ -14,6 +14,9 @@ mugd.editor.EditorViewModel = function (schema, data) {
   this['ui'] = {
     'selected': ko.observable()
   };
+  this['tools'] = {
+    'state': ko.observable('collapsed')
+  }
 };
 
 mugd.editor.EditorViewModel.prototype['loadModel'] = function () {

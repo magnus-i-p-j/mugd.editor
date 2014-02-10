@@ -1,11 +1,14 @@
-<section>
+<section data-bind="css: title().toLowerCase()">
   <header>
     <h1 data-bind="text: title"></h1>
+
     <p data-bind="text: description"></p>
   </header>
-  <div data-bind="foreach: value">
-    <button data-bind="click: function(){ $parent.deleteItem($data);}">Delete</button>
-    <div class="card" data-bind="template: { name: template() }"></div>
+  <div data-bind="foreach: value" class="items">
+    <section class="card">
+      <div data-bind="template: { name: template() }, css: title().toLowerCase()"></div>
+      <button data-bind="click: function(){ $parent.deleteItem($data);}" class="delete">Delete</button>
+    </section>
   </div>
   <button data-bind="click: newItem">New Item</button>
 </section>
