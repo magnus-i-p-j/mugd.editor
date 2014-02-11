@@ -43,6 +43,18 @@ mugd.editor.IViewModel.prototype['value'] = function (value) {
 };
 
 /**
+ * @type {function(!boolean=):!boolean}
+ */
+mugd.editor.IViewModel.prototype['valid'] = function () {
+};
+
+/**
+ * @type {function(!Array=):!Array}
+ */
+mugd.editor.IViewModel.prototype['errors'] = function () {
+};
+
+/**
  * @param {*} value
  */
 mugd.editor.IViewModel.prototype['setValue'] = function (value) {

@@ -27,6 +27,9 @@ mugd.editor.ObjectViewModel = function (schema, resolver, getSubModel) {
   );
   this['value'] = ko.observable(properties);
 
+  this.required = schema['required'];
+
+
   resolver.put(this, schema);
 };
 goog.inherits(mugd.editor.ObjectViewModel, mugd.editor.AbstractViewModel);

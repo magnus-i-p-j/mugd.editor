@@ -47,6 +47,13 @@ mugd.editor.AbstractViewModel = function (schema, resolver) {
    */
   this['modelState'] = ko.observable(mugd.editor.constants.ModelState.UNCHANGED);
 
+  this['errors'] = ko.observableArray();
+
+  this['valid'] = ko.computed(function(){
+      return this['errors']().length <= 0;
+    }, this
+  );
+
   /**
    *
    * @type {!mugd.editor.LinkResolver}
