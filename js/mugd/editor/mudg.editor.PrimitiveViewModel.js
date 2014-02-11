@@ -118,21 +118,23 @@ mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.STR
   };
 mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.NUMBER] =
   function (schema) {
+    var errors = [];
     return function (value) {
       if (!mugd.utils.isNumber(value)) {
         throw {'name': 'TypeMismatchException', 'reason': 'Expected number', 'value': value};
       }
-      return {value: parseFloat(value)};
+      return {value: parseFloat(value), errors: errors };
     };
   };
 
 mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.BOOLEAN] =
   function (schema) {
     return function (value) {
+      var errors = [];
       if (!mugd.utils.isBoolean(value)) {
         throw {'name': 'TypeMismatchException', 'reason': 'Expected boolean', 'value': value};
       }
-      return {value: !!value};
+      return {value: !!value, errors: errors};
     };
   };
 

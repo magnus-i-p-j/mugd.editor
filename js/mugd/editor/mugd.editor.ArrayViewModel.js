@@ -21,6 +21,17 @@ mugd.editor.ArrayViewModel = function (schema, resolver, createSubModel) {
    * @type {function(!Array=):!Array}
    */
   this['value'] = ko.observableArray();
+
+  this['valid'] = ko.computed(
+    function(){
+      var valid = goog.array.every( this['value'](),
+        function (value) {
+          return value['valid']();
+        });
+      return valid;
+    }, this
+  );
+
 };
 goog.inherits(mugd.editor.ArrayViewModel, mugd.editor.AbstractViewModel);
 

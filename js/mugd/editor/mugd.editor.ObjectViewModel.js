@@ -4,6 +4,7 @@ goog.require('mugd.editor.constants');
 goog.require('mugd.editor.IViewModel');
 goog.require('mugd.editor.AbstractViewModel');
 goog.require('goog.object');
+goog.require('goog.array');
 
 /**
  * @param {!Object} schema
@@ -20,12 +21,22 @@ mugd.editor.ObjectViewModel = function (schema, resolver, getSubModel) {
 
   var properties = {};
   goog.object.forEach(schema['properties'],
-      function (value, key, allValues) {
-        properties[key] = getSubModel(value, resolver);
-        this['properties'].push(properties[key]);
-      }, this
+    function (value, key, allValues) {
+      properties[key] = getSubModel(value, resolver);
+      this['properties'].push(properties[key]);
+    }, this
   );
   this['value'] = ko.observable(properties);
+
+  this['valid'] = ko.computed(
+    function(){
+      var valid = goog.array.every( this['properties'](),
+        function (property) {
+          return property['valid']();
+        });
+      return valid;
+    }, this
+  );
 
   this.required = schema['required'];
 
@@ -36,23 +47,23 @@ goog.inherits(mugd.editor.ObjectViewModel, mugd.editor.AbstractViewModel);
 
 mugd.editor.ObjectViewModel.prototype['toJSON'] = function () {
   return goog.object.map(this['value'](),
-      function (value) {
-        return value['toJSON']();
-      }
+    function (value) {
+      return value['toJSON']();
+    }
   );
 };
 
 mugd.editor.ObjectViewModel.prototype['setValue'] = function (newValue) {
   var current = this['value']();
   goog.object.forEach(newValue,
-      function (value, key) {
-        if(current[key]){
+    function (value, key) {
+      if (current[key]) {
         current[key]['setValue'](value);
-        }
-        else{
-          console.log("Discarding value for: " + key);
-        }
       }
+      else {
+        console.log("Discarding value for: " + key);
+      }
+    }
   );
 };
 

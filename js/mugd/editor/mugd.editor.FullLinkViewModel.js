@@ -45,6 +45,7 @@ mugd.editor.FullLinkViewModel = function (schema, resolver) {
     }
   }, this);
 
+
   this._link.uri.subscribe(
     function (uri) {
       if (uri.substring(0, 4) !== 'guid') {

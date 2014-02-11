@@ -1,7 +1,7 @@
 <label data-bind="attr: {title:description}">
   <span class="label" data-bind="text: title"></span>
   <input class="value" type="text" data-bind="value: value" />
-    <!-- ko ifNot: valid -->
+    <!-- ko ifnot: valid -->
         <!-- ko foreach: errors -->
         <span class="error" data-bind="text: $data"></span>
         <!-- /ko -->
