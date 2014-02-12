@@ -28,6 +28,11 @@ ko.bindingHandlers = {};
 /**
  * @type {function(Array=):function(Array=):!Array}
  */
+/**
+ * @param {Array.<T>=} initialValues
+ * @return {function(Array.<T>=):Array.<T>}
+ * @template T
+ */
 ko.observableArray = function (initialValues) {
 };
 

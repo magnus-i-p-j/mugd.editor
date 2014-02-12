@@ -19,7 +19,7 @@ mugd.editor.PrimitiveViewModel = function (schema, resolver) {
    * @type {function(*=):(*)}
    * @private
    */
-  var _value = ko.observable();
+  var _value = ko.observable(mugd.editor.PrimitiveViewModel.defaults[schema['type']]);
   /**
    * @type {function(string=):{value: (string|number|boolean), errors:[string]}}
    */
@@ -99,45 +99,45 @@ mugd.editor.PrimitiveViewModel.prototype.disposeInternal = function () {
  * @type {Object.<string, function(*):function(string=):{value: (string|number|boolean), errors:[string]}>}
  */
 mugd.editor.PrimitiveViewModel.validateValue = {};
-mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.STRING] =
-  function (schema) {
-    return function (value) {
-      var errors = [];
-      if (!goog.isString(value)) {
-        throw {'name': 'TypeMismatchException', 'reason': 'Expected string', 'value': value};
-      }
-
-      if(schema['pattern']){
-        var format = new RegExp(schema['pattern']);
-        if(!format.test(value)){
-          var error = "Value must match: " + schema['pattern'];
-          errors.push(error);
-        }
-      }
-
-      return {value: value, errors: errors};
-    };
-  };
-mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.NUMBER] =
-  function (schema) {
+mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.STRING] = function (schema) {
+  return function (value) {
     var errors = [];
-    return function (value) {
-      if (!mugd.utils.isNumber(value)) {
-        throw {'name': 'TypeMismatchException', 'reason': 'Expected number', 'value': value};
+    if (!goog.isString(value)) {
+      throw {'name': 'TypeMismatchException', 'reason': 'Expected string', 'value': value};
+    }
+
+    if (schema['pattern']) {
+      var format = new RegExp(schema['pattern']);
+      if (!format.test(value)) {
+        var error = "Value must match: " + schema['pattern'];
+        errors.push(error);
       }
-      return {value: parseFloat(value), errors: errors };
-    };
+    }
+
+    return {value: value, errors: errors};
   };
-
-mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.BOOLEAN] =
-  function (schema) {
-    return function (value) {
-      var errors = [];
-      if (!mugd.utils.isBoolean(value)) {
-        throw {'name': 'TypeMismatchException', 'reason': 'Expected boolean', 'value': value};
-      }
-      return {value: !!value, errors: errors};
-    };
+};
+mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.NUMBER] = function (schema) {
+  var errors = [];
+  return function (value) {
+    if (!mugd.utils.isNumber(value)) {
+      throw {'name': 'TypeMismatchException', 'reason': 'Expected number', 'value': value};
+    }
+    return {value: parseFloat(value), errors: errors };
   };
+};
 
+mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.BOOLEAN] = function (schema) {
+  return function (value) {
+    var errors = [];
+    if (!mugd.utils.isBoolean(value)) {
+      throw {'name': 'TypeMismatchException', 'reason': 'Expected boolean', 'value': value};
+    }
+    return {value: !!value, errors: errors};
+  };
+};
 
+mugd.editor.PrimitiveViewModel.defaults = {};
+mugd.editor.PrimitiveViewModel.defaults[mugd.editor.constants.ValueType.BOOLEAN] = false;
+mugd.editor.PrimitiveViewModel.defaults[mugd.editor.constants.ValueType.NUMBER] = 0;
+mugd.editor.PrimitiveViewModel.defaults[mugd.editor.constants.ValueType.STRING] = '';

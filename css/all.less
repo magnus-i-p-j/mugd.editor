@@ -13,7 +13,7 @@
 
 @textColour: #454545;
 
-@uxSize: 20px;
+@uxSize: 15px;
 @uxBorder: 2px;
 
 @buttonColour: #2e2f16;
@@ -32,7 +32,7 @@ header, nav, section, article, aside, footer {
   left: 0;
   border: @borderColour 1px solid;
   margin: 5px;
-  padding: 5px;
+  padding: @uxSize;
   background-color: @basicBackground;
   color: @textColour;
   overflow: hidden;
@@ -52,8 +52,8 @@ header, nav, section, article, aside, footer {
     width: 30em;
   }
   &.collapsed {
-    width: 20px;
-    height: 20px;
+    width: @uxSize;
+    height: @uxSize;
     padding: 0;
   }
   .buttons {

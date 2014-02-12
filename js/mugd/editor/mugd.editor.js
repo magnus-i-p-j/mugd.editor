@@ -57,10 +57,10 @@ mugd.editor._getModel = function (schema, resolver) {
  */
 mugd.editor.init = function (rootNode, config) {
   infuser.defaults.templatePrefix = 'tpl/editor/';
+  mugd.utils.bindings.addScaledImage();
+
   var vm = new mugd.editor.EditorViewModel(config.schema, config.data);
   ko.applyBindings(vm, rootNode);
-
-  mugd.utils.bindings.addScaledImage();
 
   return vm;
 };
