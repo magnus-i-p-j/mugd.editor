@@ -19,11 +19,14 @@ mugd.editor.ObjectViewModel = function (schema, resolver, getSubModel) {
 
   this['properties'] = ko.observableArray();
 
+  this.required = {};
   var properties = {};
   goog.object.forEach(schema['properties'],
     function (value, key, allValues) {
-      properties[key] = getSubModel(value, resolver);
-      this['properties'].push(properties[key]);
+      var subModel = getSubModel(value, resolver);
+      properties[key] = subModel;
+      this['properties'].push(subModel);
+      subModel['required'] =  !!(schema['required'] && goog.array.contains(schema['required'], key));
     }, this
   );
   this['value'] = ko.observable(properties);
@@ -37,9 +40,6 @@ mugd.editor.ObjectViewModel = function (schema, resolver, getSubModel) {
       return valid;
     }, this
   );
-
-  this.required = schema['required'];
-
 
   resolver.put(this, schema);
 };
@@ -105,6 +105,7 @@ mugd.editor.ObjectViewModel.prototype.disposeInternal = function () {
 
 mugd.editor.ObjectViewModel.prototype['title'] = function () {
 };
+
 mugd.editor.ObjectViewModel.prototype['type'] = function (value) {
   return mugd.editor.constants.ValueType.OBJECT;
 };

@@ -41,6 +41,8 @@ mugd.editor.PrimitiveViewModel = function (schema, resolver) {
     }, this
   );
 
+  this['required'] = false;
+
 };
 
 goog.inherits(mugd.editor.PrimitiveViewModel, mugd.editor.AbstractViewModel);

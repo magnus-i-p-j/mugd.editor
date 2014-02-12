@@ -11,6 +11,7 @@
         "title": "Terrain",
         "description": "Some sort of stuff to walk on.",
         "type": "object",
+        "required": ["name"],
         "properties": {
           "type": {
             "title": "Type",
