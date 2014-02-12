@@ -1,10 +1,8 @@
 <section data-bind="css: modelState" >
   <header>
-      <pre data-bind="text: modelState()"></pre>
     <h1 data-bind="text: title"></h1>
   </header>
   <div data-bind="foreach: properties">
-      <pre data-bind="text: modelState()"></pre>
-    <div data-bind="css: {required: (required && value() === '')}, template: { name: template() }"></div>
+    <div data-bind="template: { name: template() }"></div>
   </div>
 </section>
