@@ -8,7 +8,7 @@
       "type": "object",
       "title": "Operation",
       "properties": {
-        "type": {
+        "id": {
           "title": "ID: ",
           "type": "string",
           "format": "id"

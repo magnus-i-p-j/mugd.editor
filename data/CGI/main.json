@@ -1,1 +1,9 @@
-{}
+{"operation": {
+  "id": "07b912d5-25a4-4469-b04e-925d0369e63e",
+  "sourceOperand": {
+    "parameters": []
+  },
+  "targetOperand": {
+    "parameters": []
+  }
+}, "connectionsID": [], "operandTypes": []}
