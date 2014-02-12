@@ -1,7 +1,7 @@
 @tileWidth: 72px;
 @tileHeight: 72px;
 //@basicBackground: Linen;
-@basicBackground: transparent;
+@basicBackground: #fafafa;
 @darkerBackground: #eae0d6;
 @borderColour: #292929;
 
@@ -11,74 +11,121 @@
 @startColour: #16161c;
 @endColour: #01020a;
 
-@textColour: #afafaf;
+@textColour: #454545;
+
+@uxSize: 20px;
+@uxBorder: 2px;
 
 @buttonColour: #2e2f16;
 @buttonColourBorder: #2f2c1e;
 @buttonRadius: 3px;
 
 header, nav, section, article, aside, footer {
-  display:block;
-}
-
-html,
-body {
-  height: 100%;
-  background-color:#989898;
-}
-
-input, textarea {
-  text-transform:uppercase;
-  background-color:#303030;
-  border-color:#FFFFFF;
-  color:#FFFFFF;
-  border: 0;
-  border-style:solid;
-}
-
-textarea{
   display: block;
 }
 
-* {
-  font-family: Arial;
+@cardWidth: 25em;
+@labelWidth: 5em;
+#editor_tools {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: @borderColour 1px solid;
+  margin: 5px;
+  padding: 5px;
+  background-color: @basicBackground;
+  color: @textColour;
+  overflow: hidden;
+  label {
+    white-space: nowrap;
+  }
+  .row {
+    display: table-row;
+    > * {
+      display: table-cell;
+    }
+    > input {
+      width: 25em;
+    }
+  }
+  &.expanded {
+    width: 30em;
+  }
+  &.collapsed {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+  }
+  .buttons {
+    button {
+      float: left;
+    }
+  }
 }
 
-@cardWidth: 25em;
-@labelWidth: 500px;
-.editor {
-  .source_selector {
-    label {
-      display: table-row;
-      > * {
-        display: table-cell;
-      }
-      > input {
-        width: 40em;
-      }
-    }
+#root_data {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: @cardWidth * 1.3;
+  z-index: -20;
+  padding-top: 30px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.ux {
+  display: block;
+  position: absolute;
+  width: @uxSize - @uxBorder;
+  height: @uxSize - @uxBorder;
+  line-height: @uxSize - @uxBorder;
+  font-size: @uxSize - @uxBorder;
+  font-weight: bolder;
+  border: @uxBorder outset #cc95bc;
+  background-color: #cc95bc;
+  color: #2e0824;
+  text-align: center;
+  cursor: pointer;
+  &.top-left {
+    top: 0;
+    left: 0;
   }
-  .card {
-    width: @cardWidth;
-    max-width: 100%;
-    .label {
-      width: @labelWidth;
-      font-size: .8em;
-    }
-    .value {
-      width: (@cardWidth - @labelWidth);
-      font-size: .8em;
-    }
-    .cell {
-      display: inline-block;
-    }
-    > .new {
-      background: #aab8ff;
-    }
+}
+.required{
+  background-color: #c6f0ff;
+}
+.expanded {
+  .ux.expand {
+    display: none;
   }
-  label.line {
-    display: block;
+}
+
+.collapsed {
+  .ux.collapse {
+    display: none;
   }
+}
+
+.card {
+  width: @cardWidth;
+  max-width: 100%;
+  .label {
+    width: @labelWidth;
+    display: inline-block;
+  }
+  .value {
+    width: (@cardWidth - @labelWidth);
+    display: inline-block;
+  }
+  .cell {
+    display: inline-block;
+  }
+}
+
+label.line {
+  display: block;
 }
 
 section section {
@@ -91,5 +138,11 @@ section section {
   header p {
     margin: 0;
     font-size: .8em;
+  }
+  .new {
+    background: #aab8ff;
+  }
+  .error {
+    background: #ff2b1c;
   }
 }

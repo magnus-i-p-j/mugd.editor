@@ -26,7 +26,7 @@ mugd.editor.LinkResolver = function () {
   /**
    * @type {function(number=):number}
    */
-  this.numUnresolved = ko.observable(0);
+  this.numUnresolved =   /** @type {function(number=):number} */ (ko.observable(0));
 };
 
 /**

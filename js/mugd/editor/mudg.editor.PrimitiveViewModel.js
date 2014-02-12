@@ -21,22 +21,28 @@ mugd.editor.PrimitiveViewModel = function (schema, resolver) {
    */
   var _value = ko.observable();
   /**
-   * @type {function(string=):(string|number|boolean)}
+   * @type {function(string=):{value: (string|number|boolean), errors:[string]}}
    */
-  var validateValueCallback = mugd.editor.PrimitiveViewModel.validateValue[this['type']];
+  var validateValueCallback = mugd.editor.PrimitiveViewModel.validateValue[this['type']](schema);
   /**
    * @type {function(string=):(string|number|boolean)}
    */
   this['value'] = ko.computed(
-      {
-        'read': function(){
-          return _value();
-        },
-        'write': function(value){
-          _value(validateValueCallback(value));
-        }
+    {
+      'read': function () {
+        return _value();
+      },
+      'write': function (value) {
+        var validatedValue = validateValueCallback(value);
+        _value(validatedValue.value);
+        this['errors'].removeAll();
+        goog.array.extend(this['errors'], validatedValue.errors);
       }
+    }, this
   );
+
+  this['required'] = false;
+
 };
 
 goog.inherits(mugd.editor.PrimitiveViewModel, mugd.editor.AbstractViewModel);
@@ -59,7 +65,7 @@ mugd.editor.PrimitiveViewModel.prototype.fetchSplitPath = function (path, index)
     index = 0;
   }
 
-  if(index === path.length){
+  if (index === path.length) {
     return this;
   }
 
@@ -78,36 +84,60 @@ mugd.editor.PrimitiveViewModel.isPrimitiveValue = function (schema) {
 //      mugd.editor.constants.ValueType.STRING,
 //      mugd.editor.constants.ValueType.STRING
   ],
-      schema['type']
+    schema['type']
   );
 };
 
 /**
  * @inheritDoc
  */
-mugd.editor.PrimitiveViewModel.prototype.disposeInternal = function(){
+mugd.editor.PrimitiveViewModel.prototype.disposeInternal = function () {
   goog.base(this, 'disposeInternal');
 };
 
+/**
+ * @type {Object.<string, function(*):function(string=):{value: (string|number|boolean), errors:[string]}>}
+ */
 mugd.editor.PrimitiveViewModel.validateValue = {};
-mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.STRING] = function (value) {
-  if (!goog.isString(value)) {
-    throw {'name': 'TypeMismatchException', 'reason': 'Expected string', 'value': value};
-  }
-  return value;
-};
-mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.NUMBER] = function (value) {
-  if (!mugd.utils.isNumber(value)) {
-    throw {'name': 'TypeMismatchException', 'reason': 'Expected number', 'value': value};
-  }
-  return parseFloat(value);
-};
+mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.STRING] =
+  function (schema) {
+    return function (value) {
+      var errors = [];
+      if (!goog.isString(value)) {
+        throw {'name': 'TypeMismatchException', 'reason': 'Expected string', 'value': value};
+      }
 
-mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.BOOLEAN] = function (value) {
-  if (!mugd.utils.isBoolean(value)) {
-    throw {'name': 'TypeMismatchException', 'reason': 'Expected boolean', 'value': value};
-  }
-  return !!value;
-};
+      if(schema['pattern']){
+        var format = new RegExp(schema['pattern']);
+        if(!format.test(value)){
+          var error = "Value must match: " + schema['pattern'];
+          errors.push(error);
+        }
+      }
+
+      return {value: value, errors: errors};
+    };
+  };
+mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.NUMBER] =
+  function (schema) {
+    var errors = [];
+    return function (value) {
+      if (!mugd.utils.isNumber(value)) {
+        throw {'name': 'TypeMismatchException', 'reason': 'Expected number', 'value': value};
+      }
+      return {value: parseFloat(value), errors: errors };
+    };
+  };
+
+mugd.editor.PrimitiveViewModel.validateValue[mugd.editor.constants.ValueType.BOOLEAN] =
+  function (schema) {
+    return function (value) {
+      var errors = [];
+      if (!mugd.utils.isBoolean(value)) {
+        throw {'name': 'TypeMismatchException', 'reason': 'Expected boolean', 'value': value};
+      }
+      return {value: !!value, errors: errors};
+    };
+  };
 
 

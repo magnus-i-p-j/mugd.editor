@@ -11,6 +11,7 @@
         "title": "Terrain",
         "description": "Some sort of stuff to walk on.",
         "type": "object",
+        "required": ["name", "description"],
         "properties": {
           "type": {
             "title": "Type",
@@ -20,7 +21,8 @@
           "name": {
             "title": "Name",
             "description": "Visible name of terrain",
-            "type": "string"
+            "type": "string",
+            "pattern": ".{2}"
           },
           "description": {
             "title": "Description",

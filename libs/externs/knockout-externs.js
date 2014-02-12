@@ -5,7 +5,9 @@
 var ko = {};
 
 /**
- * @type {function(*=):function(*=)} initialValue
+ * @param {T=} initialValue
+ * @return {function(T=):T}
+ * @template T
  */
 ko.observable = function (initialValue) {
 };
