@@ -21,5 +21,5 @@ mugd.editor.constants.ModelState = {
   'UPDATED': 'updated',
   'DELETED': 'deleted',
   'UNCHANGED': 'unchanged'
-}
+};
 
