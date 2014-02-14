@@ -106,7 +106,7 @@
                   "uiVisible": {
                     "title": "Synlig i gränssnitt: ",
                     "description": "Om parametern ska synas i gränssnittet",
-                    "type": "booleanean"
+                    "type": "boolean"
                   },
                   "valueType": {
                     "title": "Värdetyp: ",
@@ -189,7 +189,7 @@
                   "isMultiValue": {
                     "title": "Multi-värde: ",
                     "description": "Om det är ett multi-värde",
-                    "type": "booleanean"
+                    "type": "boolean"
                   }
                 },
                 "links": {
@@ -272,7 +272,7 @@
                   "uiVisible": {
                     "title": "Synlig i gränssnitt: ",
                     "description": "Om parametern ska synas i gränssnittet",
-                    "type": "booleanean"
+                    "type": "boolean"
                   },
                   "valueType": {
                     "title": "Värdetyp: ",
@@ -355,7 +355,7 @@
                   "isMultiValue": {
                     "title": "Multi-värde: ",
                     "description": "Om det är ett multi-värde",
-                    "type": "booleanean"
+                    "type": "boolean"
                   }
                 },
                 "links": {
