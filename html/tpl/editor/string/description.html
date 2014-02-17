@@ -1,4 +1,4 @@
 <label data-bind="attr: {title:description}">
   <span class="label" data-bind="text: title"></span>
-  <textarea rows="4" cols="50" data-bind="value: value"></textarea>
+  <textarea rows="4" cols="50" data-bind="value: value, css:{error: !valid(), required: (required && !value() )}"></textarea>
 </label>

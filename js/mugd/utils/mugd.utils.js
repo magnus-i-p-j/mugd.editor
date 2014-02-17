@@ -1,10 +1,13 @@
 goog.provide('mugd.utils');
 
+goog.require('goog.object');
+goog.require('goog.array');
+
 /**
  * @param {*} n
  * @returns {boolean}
  */
-mugd.utils.isNumber = function(n) {
+mugd.utils.isNumber = function (n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
@@ -12,7 +15,7 @@ mugd.utils.isNumber = function(n) {
  * @param {*} b
  * @returns {boolean}
  */
-mugd.utils.isBoolean = function(b) {
+mugd.utils.isBoolean = function (b) {
   return b.constructor === Boolean;
 };
 
@@ -60,3 +63,35 @@ mugd.utils.CHOOSE_CHARS = 'abcdefghijklmnopqrstuvxyzABCDEFGHIJKLMNOPQRSTUVXYZ012
 /** @typedef {string} */
 mugd.utils.guid;
 
+/**
+ * @param {Object.<string, string>} i18n
+ * @param {string} prefix
+ * @param {string} title
+ * @return {string}
+ */
+mugd.utils.cssify = function (title, prefix, i18n) {
+  prefix = prefix || 'cssify_';
+  i18n = i18n ||
+    {
+      'å': 'a',
+      'ä': 'a',
+      'ö': 'o'
+    };
+  var css = title.toLowerCase();
+  var replaceI18n = goog.array.reduce(
+    goog.object.getKeys(i18n),
+    function(result, value){
+      result += value;
+      return result;
+    },
+    '['
+  ) + ']';
+  css = css.replace(new RegExp(replaceI18n), function(match){
+    return goog.array.map( match, function(s){
+      return i18n[s];
+    })
+  });
+
+  css = css.replace(/[^a-z0-9]/g, '_');
+  return prefix + css;
+}
