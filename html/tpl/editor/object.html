@@ -1,4 +1,4 @@
-<section data-bind="css: modelState" >
+<section data-bind="css: modelState() + ' ' + mugd.utils.cssify(title())" >
   <header>
     <h1 data-bind="text: title"></h1>
   </header>
