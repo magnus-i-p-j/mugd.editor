@@ -16,8 +16,9 @@ goog.require('mugd.utils.bindings');
  * @return {mugd.editor.IViewModel}
  */
 mugd.editor.getViewModel = function (schema, data) {
-  var resolver = new mugd.editor.LinkResolver();
-  var model = mugd.editor._getModel(schema, resolver);
+  var linkResolver = new mugd.editor.LinkResolver();
+  var schemaResolver = new mugd.editor.SchemaResolver();
+  var model = mugd.editor._getModel(schema, linkResolver);
   model['setValue'](data);
   return model;
 };
@@ -26,24 +27,26 @@ mugd.editor.getViewModel = function (schema, data) {
  * @param {!Object} schema
  * @return {mugd.editor.IViewModel}
  * @private
- * @param resolver
+ * @param {mugd.editor.SchemaResolver} schemaResolver
+ * @param {mugd.editor.LinkResolver} linkResolver
  */
-mugd.editor._getModel = function (schema, resolver) {
+mugd.editor._getModel = function (schema, schemaResolver, linkResolver) {
+  schema = schemaResolver.getSchema(schema);
   if (mugd.editor.FullLinkViewModel.isFullLinkValue(schema)) {
-    return new mugd.editor.FullLinkViewModel(schema, resolver);
+    return new mugd.editor.FullLinkViewModel(schema, linkResolver);
   }
   if (mugd.editor.EnumViewModel.isEnumValue(schema)) {
-    return new mugd.editor.EnumViewModel(schema, resolver);
+    return new mugd.editor.EnumViewModel(schema, linkResolver);
   }
   if (mugd.editor.PrimitiveViewModel.isPrimitiveValue(schema)) {
-    return new mugd.editor.PrimitiveViewModel(schema, resolver);
+    return new mugd.editor.PrimitiveViewModel(schema, linkResolver);
   }
   if (mugd.editor.ObjectViewModel.isObjectValue(schema)) {
-    return new mugd.editor.ObjectViewModel(schema, resolver, mugd.editor._getModel);
+    return new mugd.editor.ObjectViewModel(schema, linkResolver, mugd.editor._getModel);
   }
   if (mugd.editor.ArrayViewModel.isArrayValue(schema)) {
-    return new mugd.editor.ArrayViewModel(schema, resolver, function () {
-      return mugd.editor._getModel(schema['items'], resolver);
+    return new mugd.editor.ArrayViewModel(schema, linkResolver, function () {
+      return mugd.editor._getModel(schema['items'], linkResolver);
     });
   }
 
