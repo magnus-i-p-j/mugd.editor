@@ -2,7 +2,7 @@
   "id": "edit",
   "inputs": ["js/mugd/editor/mugd.editor.js"],
   "paths": ["js"],
-  "mode": "RAW",
+  "mode": "SIMPLE",
   "level": "VERBOSE",
   "externs": [
     "libs/externs/knockout-externs.js",
