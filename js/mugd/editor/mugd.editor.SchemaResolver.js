@@ -15,9 +15,10 @@ mugd.editor.SchemaResolver = function (schema) {
 mugd.editor.SchemaResolver.prototype.getSchema = function(schema){
   if(schema['links'] && schema['links']['rel'] === 'describedBy'){
     var describedBy = schema['links']['rel'];
-    schema = this._resolveSchema(schema, describedBy.split('/'));
-  return schema;
-};
+    describedBy = describedBy.slice(1);
+    schema = this._resolveSchema(this._schema, describedBy.split('/'));
+    return schema;
+  };
 
   /**
    * @param {*} context
@@ -25,9 +26,9 @@ mugd.editor.SchemaResolver.prototype.getSchema = function(schema){
    * @returns {*}
    * @private
    */
-mugd.editor.SchemaResolver.prototype._resolveSchema = function(context, keys){
+  mugd.editor.SchemaResolver.prototype._resolveSchema = function(context, keys){
     var key = keys.shift();
-    context = context['properties'][key];
+    context = context[key];
     if(keys.length < 0){
       return context;
     }
@@ -35,4 +36,4 @@ mugd.editor.SchemaResolver.prototype._resolveSchema = function(context, keys){
       return this._resolveSchema(context, keys);
     }
   };
-}
+};
