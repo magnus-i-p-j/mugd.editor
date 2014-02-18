@@ -23,7 +23,7 @@ mugd.editor.ObjectViewModel = function (schema, resolver, getSubModel) {
   var properties = {};
   goog.object.forEach(schema['properties'],
     function (value, key, allValues) {
-      var subModel = getSubModel(value, resolver);
+      var subModel = getSubModel(value);
       properties[key] = subModel;
       this['properties'].push(subModel);
       subModel['required'] =  !!(schema['required'] && goog.array.contains(schema['required'], key));

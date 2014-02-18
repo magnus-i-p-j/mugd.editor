@@ -1,7 +1,7 @@
 goog.provide('mugd.editor.SchemaResolver');
 
 /**
- * @param {string} schema
+ * @param {!Object} schema
  * @constructor
  */
 mugd.editor.SchemaResolver = function (schema) {
@@ -9,21 +9,23 @@ mugd.editor.SchemaResolver = function (schema) {
 };
 
 /**
- * @param {*} schema
- * @returns {*}
+ * @param {!Object} schema
+ * @returns {!Object}
  */
 mugd.editor.SchemaResolver.prototype.getSchema = function(schema){
   if(schema['links'] && schema['links']['rel'] === 'describedBy'){
     var describedBy = schema['links']['rel']['href'];
     describedBy = describedBy.slice(1);
     schema = this._resolveSchema(this._schema, describedBy.split('/'));
-    return schema;
-  };
+  }
+  return schema;
+};
+
 
   /**
-   * @param {*} context
+   * @param {!Object} context
    * @param {Array.<string>} keys
-   * @returns {*}
+   * @returns {!Object}
    * @private
    */
   mugd.editor.SchemaResolver.prototype._resolveSchema = function(context, keys){
@@ -36,4 +38,3 @@ mugd.editor.SchemaResolver.prototype.getSchema = function(schema){
       return this._resolveSchema(context, keys);
     }
   };
-};
