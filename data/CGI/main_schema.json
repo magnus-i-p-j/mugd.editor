@@ -1,6 +1,174 @@
 {
   "title": "Skapa operation",
   "description": "The stuff people walk on.",
+  "typedefs": {
+    "operand": {
+      "title": "Operand",
+      "description": "Operanden till en operation",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "ID: ",
+          "type": "string",
+          "format": "id"
+        },
+        "name": {
+          "title": "Namn: ",
+          "description": "Operandens namn",
+          "type": "string"
+        },
+        "description": {
+          "title": "Beskrivning: ",
+          "description": "Beskrivning av operanden",
+          "type": "string",
+          "format": "description"
+        },
+        "schema": {
+          "title": "Schema: ",
+          "description": "Schema till operanden",
+          "type": "string"
+        },
+        "operandTypes": {
+          "title": "Operandtyp: ",
+          "description": "Olika typer av operander",
+          "type": "string",
+          "links": {
+            "rel": "full",
+            "href": "editor://operandTypes/{@}"
+          }
+        },
+        "connectionsID": {
+          "title": "Anslutning: ",
+          "description": "Hur operanden ska ansluta",
+          "type": "string",
+          "links": {
+            "rel": "full",
+            "href": "editor://connection/{@}"
+          }
+        },
+        "parameters":{
+          "title": "Parametrar",
+          "description": "Operandens parametrar",
+          "type": "array",
+          "items": {
+            "title": "Parameter",
+            "description": "Operandens parametrar",
+            "type": "object",
+            "properties": {
+              "type": {
+                "title": "ID",
+                "type": "string",
+                "format": "id"
+              },
+              "name": {
+                "title": "Namn: ",
+                "description": "Parameterns namn",
+                "type": "string"
+              },
+              "description": {
+                "title": "Beskrivning: ",
+                "description": "Beskrivning av parametern",
+                "type": "string",
+                "format": "description"
+              },
+              "uiVisible": {
+                "title": "Synlig i gränssnitt: ",
+                "description": "Om parametern ska synas i gränssnittet",
+                "type": "boolean"
+              },
+              "valueType": {
+                "title": "Värdetyp: ",
+                "description": "Vilken värdetyp som parametern ska ha",
+                "enum": [ "Bool", "Int", "Double", "String", "DateTime" ]
+              },
+              "field": {
+                "title": "Fält: ",
+                "description": "Värdet som operatorn appliceras på",
+                "type": "string"
+              },
+              "operator": {
+                "title": "Operator: ",
+                "description": "Vilken operator som ska användas",
+                "enum": [ "<", ">", "<=", ">=", "=", "!=", "IN", "NOT IN" ]
+              },
+              "parameterValueID": {
+                "title": "Parametervärde",
+                "description": "Parameterns värde",
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "title": "ID: ",
+                    "type": "string",
+                    "format": "id"
+                  },
+                  "value": {
+                    "title": "Värde: ",
+                    "description": "Parameterns värde",
+                    "type": "string"
+                  },
+                  "valueLookUp": {
+                    "title": "Värdeuppslag",
+                    "description": "Vilket värde som ska slås upp",
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "title": "ID: ",
+                        "type": "string",
+                        "format": "id"
+                      },
+                      "name": {
+                        "title": "Namn: ",
+                        "description": "Namnet på värdeuppslaget",
+                        "type": "string"
+                      },
+                      "description": {
+                        "title": "Beskrivning: ",
+                        "description": "Beskrivning av värdeuppslaget",
+                        "type": "string",
+                        "format": "description"
+                      },
+                      "schema": {
+                        "title": "Schema: ",
+                        "description": "Schemat till värdeuppslaget",
+                        "type": "string"
+                      },
+                      "operandTypes": {
+                        "title": "Operandtyp: ",
+                        "description": "Olika operandtyper till värdeuppslaget",
+                        "type": "string",
+                        "links": {
+                          "rel": "full",
+                          "href": "editor://operandTypes/{@}"
+                        }
+                      },
+                      "connectionsID": {
+                        "title": "Anslutning: ",
+                        "description": "Vilken anslutning som ska användas",
+                        "type": "string",
+                        "links": {
+                          "rel": "full",
+                          "href": "editor://connection/{@}"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "isMultiValue": {
+                "title": "Multi-värde: ",
+                "description": "Om det är ett multi-värde",
+                "type": "boolean"
+              }
+            },
+            "links": {
+              "rel": "self",
+              "href": "editor://parameters/{type}"
+            }
+          }
+        }
+      }
+    }
+  },
   "type": "object",
   "properties": {
     "operation": {

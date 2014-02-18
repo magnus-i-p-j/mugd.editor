@@ -14,7 +14,7 @@ mugd.editor.SchemaResolver = function (schema) {
  */
 mugd.editor.SchemaResolver.prototype.getSchema = function(schema){
   if(schema['links'] && schema['links']['rel'] === 'describedBy'){
-    var describedBy = schema['links']['rel'];
+    var describedBy = schema['links']['rel']['href'];
     describedBy = describedBy.slice(1);
     schema = this._resolveSchema(this._schema, describedBy.split('/'));
     return schema;
