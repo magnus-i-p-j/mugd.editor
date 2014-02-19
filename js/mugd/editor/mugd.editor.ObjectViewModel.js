@@ -19,21 +19,28 @@ mugd.editor.ObjectViewModel = function (schema, resolver, getSubModel) {
 
   this['properties'] = ko.observableArray();
 
-  this.required = {};
+
   var properties = {};
   goog.object.forEach(schema['properties'],
     function (value, key, allValues) {
       var subModel = getSubModel(value);
       properties[key] = subModel;
       this['properties'].push(subModel);
-      subModel['required'] =  !!(schema['required'] && goog.array.contains(schema['required'], key));
+      subModel['required'] = !!(schema['required'] && goog.array.contains(schema['required'], key));
+      if (subModel['required']) {
+        subModel['hasValue'] = function(){
+          return true;
+        };
+      }else{
+        subModel['hasValue'] = ko.observable(false);
+      }
     }, this
   );
   this['value'] = ko.observable(properties);
 
   this['valid'] = ko.computed(
-    function(){
-      var valid = goog.array.every( this['properties'](),
+    function () {
+      var valid = goog.array.every(this['properties'](),
         function (property) {
           return property['valid']();
         });
@@ -46,7 +53,10 @@ mugd.editor.ObjectViewModel = function (schema, resolver, getSubModel) {
 goog.inherits(mugd.editor.ObjectViewModel, mugd.editor.AbstractViewModel);
 
 mugd.editor.ObjectViewModel.prototype['toJSON'] = function () {
-  return goog.object.map(this['value'](),
+  var definedValues = goog.array.filter( this['value'](), function(value){
+    return value['hasValue']();
+  });
+  return goog.object.map(definedValues,
     function (value) {
       return value['toJSON']();
     }
@@ -58,6 +68,7 @@ mugd.editor.ObjectViewModel.prototype['setValue'] = function (newValue) {
   goog.object.forEach(newValue,
     function (value, key) {
       if (current[key]) {
+        current[key]['hasValue'](true);
         current[key]['setValue'](value);
       }
       else {
