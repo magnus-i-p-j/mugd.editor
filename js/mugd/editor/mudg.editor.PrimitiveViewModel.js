@@ -52,7 +52,15 @@ mugd.editor.PrimitiveViewModel.prototype['toJSON'] = function () {
 };
 
 mugd.editor.PrimitiveViewModel.prototype['setValue'] = function (value) {
-  this['value'](value);
+  try{
+    this['value'](value);
+  }
+  catch(ex){
+    throw {
+      message: "Exception thrown when trying to set " + this['title']() + " to " + value,
+      inner: ex
+    }
+  }
 };
 
 /**
