@@ -19,6 +19,7 @@ mugd.editor.EnumViewModel = function (schema, resolver) {
 
   this['template']('enum');
   this['values'] = ko.observableArray(schema['enum']);
+  this['value'] = ko.observable(this['values']()[0]);
 };
 
 goog.inherits(mugd.editor.EnumViewModel, mugd.editor.AbstractViewModel);
@@ -33,4 +34,8 @@ mugd.editor.EnumViewModel.prototype['toJSON'] = function () {
  */
 mugd.editor.EnumViewModel.isEnumValue = function (schema) {
   return goog.isDefAndNotNull(schema['enum']);
+};
+
+mugd.editor.EnumViewModel.prototype['setValue'] = function (newValue) {
+  this['value'](newValue);
 };
