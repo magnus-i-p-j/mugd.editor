@@ -2,6 +2,17 @@
   "title": "Concepts",
   "description": "The stuff people walk on.",
   "type": "object",
+  "required": [
+    "terrain",
+    "zone",
+    "project",
+    "actor",
+    "tile",
+    "stockpile",
+    "personnel",
+    "images",
+    "bounds"
+  ],
   "properties": {
     "terrain": {
       "title": "Terrains",
@@ -11,7 +22,7 @@
         "title": "Terrain",
         "description": "Some sort of stuff to walk on.",
         "type": "object",
-        "required": ["name", "description"],
+        "required": ["name", "type", "description", "zone", "image"],
         "properties": {
           "type": {
             "title": "Type",
@@ -63,6 +74,7 @@
         "title": "Zone",
         "description": "A part of the stuff you walk on.",
         "type": "object",
+        "required": ["name", "type", "description"],
         "properties": {
           "type": {
             "title": "Type",
@@ -93,6 +105,7 @@
         "title": "Project",
         "description": "A project that does stuff",
         "type": "object",
+        "required": ["name", "type", "description", "prerequisites", "effects", "cost"],
         "properties": {
           "type": {
             "title": "Type",
@@ -141,6 +154,7 @@
                   "title": "Resource",
                   "description": "One of the resources",
                   "type": "object",
+                  "required": ["type", "magnitude", "variation"],
                   "properties": {
                     "type": {
                       "title": "Resource",
@@ -189,6 +203,7 @@
                   "title": "Resource",
                   "description": "One of the required resources",
                   "type": "object",
+                  "required": ["type", "amount"],
                   "properties": {
                     "type": {
                       "title": "Resource",
@@ -220,6 +235,7 @@
         "title": "Actor",
         "description": "An actor",
         "type": "object",
+        "required": ["name", "type", "description"],
         "properties": {
           "type": {
             "title": "Type",
@@ -246,6 +262,7 @@
         "title": "Tile",
         "description": "A tile",
         "type": "object",
+        "required": ["name", "type", "description"],
         "properties": {
           "type": {
             "title": "Type",
@@ -272,6 +289,7 @@
         "title": "Stockpile",
         "description": "A stockpiled resource",
         "type": "object",
+        "required": ["name", "type", "description"],
         "properties": {
           "type": {
             "title": "Type",
@@ -294,32 +312,6 @@
         }
       }
     },
-    "artifact": {
-      "title": "Artifacts",
-      "description": "Unique items",
-      "type": "array",
-      "items": {
-        "title": "Artifact",
-        "description": "Unique item",
-        "type": "object",
-        "properties": {
-          "type": {
-            "title": "Type",
-            "type": "string"
-          },
-          "name": {
-            "title": "Name",
-            "description": "Visible name of artifact",
-            "type": "string"
-          },
-          "description": {
-            "title": "Description",
-            "description": "Describes the artifact",
-            "type": "string"
-          }
-        }
-      }
-    },
     "personnel": {
       "title": "Personnel",
       "description": "Persons populating the world",
@@ -328,6 +320,7 @@
         "title": "Character",
         "description": "A character",
         "type": "object",
+        "required": ["name", "type", "description"],
         "properties": {
           "type": {
             "title": "Type",
@@ -354,6 +347,7 @@
         "title": "Image",
         "description": "An image",
         "type": "object",
+        "required": ["url", "type"],
         "properties": {
           "type": {
             "title": "Type",
@@ -375,6 +369,7 @@
       "title": "Bounds",
       "description": "Rules affecting the start and end of the game",
       "type": "object",
+      "required": ["starting_resources"],
       "properties": {
         "starting_resources": {
           "type": "array",
@@ -384,6 +379,7 @@
             "title": "Resource",
             "description": "One of the provided resources",
             "type": "object",
+            "required": ["type", "amount"],
             "properties": {
               "type": {
                 "title": "Resource",
