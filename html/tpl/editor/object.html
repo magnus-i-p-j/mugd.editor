@@ -1,16 +1,20 @@
-<section data-bind="css: modelState() + ' ' + mugd.utils.cssify(title())" >
+<section data-bind="css: modelState() + ' ' + mugd.utils.cssify(title())">
   <header>
     <h1 data-bind="text: title"></h1>
   </header>
   <div data-bind="foreach: properties">
-    <!-- ko ifnot: required -->
-      <!-- ko if: hasValue -->
-        <span data-bind="text: title"></span>
-      <!-- /ko -->
-      <input type="checkbox" data-bind="checked: hasValue"/>
-    <!-- /ko -->
-    <!-- ko if: hasValue -->
-      <div data-bind="template: { name: template() }"></div>
-    <!-- /ko -->
+    <div data-bind="css: { 'required': required, 'optional': !required, 'has_value': hasValue() }">
+      <!-- ko ifnot: required -->
+          <label>
+            <input type="checkbox" data-bind="checked: hasValue"/>
+            <!-- ko ifnot: hasValue -->
+              <span data-bind="text: title"></span>
+            <!-- /ko -->
+          </label>
+        <!-- /ko -->
+        <!-- ko if: hasValue -->
+        <span data-bind="template: { name: template() }"></span>
+        <!-- /ko -->
+    </div>
   </div>
 </section>

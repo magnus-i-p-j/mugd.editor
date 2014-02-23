@@ -1,14 +1,14 @@
-<label data-bind="attr: {title:description}">
+<label data-bind="attr: {title:description}, css: mugd.utils.cssify(title())">
   <span class="label" data-bind="text: title"></span>
   <!-- ko if: value().length < 20 -->
-  <input class="value" type="text" data-bind="value: value, css:{error: !valid(), required: (required && !value() )}"/>
+    <input class="value" type="text" data-bind="value: value, css:{'error': !valid(), 'required': (required && !value() )}"/>
   <!-- /ko -->
   <!-- ko ifnot: value().length < 20 -->
-  <textarea class="value" data-bind="value: value"></textarea>
+    <textarea class="value" data-bind="value: value"></textarea>
   <!-- /ko -->
   <!-- ko ifnot: valid -->
-  <!-- ko foreach: errors -->
-  <span data-bind="text: $data"></span>
-  <!-- /ko -->
+    <!-- ko foreach: errors -->
+      <span data-bind="text: $data"></span>
+    <!-- /ko -->
   <!-- /ko -->
 </label>
