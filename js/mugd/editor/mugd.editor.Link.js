@@ -1,5 +1,6 @@
 goog.provide('mugd.editor.Link');
 
+goog.require('goog.Disposable');
 goog.require('mugd.utils');
 
 /**

@@ -62,7 +62,9 @@ mugd.editor._getModel = function (schema, schemaResolver, linkResolver) {
  * @return {mugd.editor.EditorViewModel}
  */
 mugd.editor.init = function (rootNode, config) {
-  infuser.defaults.templatePrefix = 'tpl/editor/';
+  if(typeof infuser !== 'undefined'){
+    infuser.defaults.templatePrefix = 'tpl/editor/';
+  }
   mugd.utils.bindings.addScaledImage();
 
   var vm = new mugd.editor.EditorViewModel(config.schema, config.data);
