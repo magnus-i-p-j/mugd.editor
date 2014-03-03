@@ -95,3 +95,7 @@ mugd.utils.cssify = function (title, prefix, i18n) {
   css = css.replace(/[^a-z0-9]/g, '_');
   return prefix + css;
 }
+
+
+goog.exportSymbol('editor.cssify', mugd.utils.cssify );
+

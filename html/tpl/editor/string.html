@@ -1,4 +1,4 @@
-<label data-bind="attr: {title:description}, css: mugd.utils.cssify(title())">
+<label data-bind="attr: {title:description}, css: editor.cssify(title())">
   <span class="label" data-bind="text: title"></span>
   <!-- ko if: value().length < 20 -->
     <input class="value" type="text" data-bind="value: value, css:{'error': !valid(), 'required': (required && !value() )}"/>

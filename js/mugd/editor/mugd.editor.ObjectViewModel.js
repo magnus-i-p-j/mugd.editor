@@ -53,7 +53,7 @@ mugd.editor.ObjectViewModel = function (schema, resolver, getSubModel) {
 goog.inherits(mugd.editor.ObjectViewModel, mugd.editor.AbstractViewModel);
 
 mugd.editor.ObjectViewModel.prototype['toJSON'] = function () {
-  var definedValues = goog.array.filter( this['value'](), function(value){
+  var definedValues = goog.object.filter( this['value'](), function(value){
     return value['hasValue']();
   });
   return goog.object.map(definedValues,
