@@ -1,0 +1,14 @@
+{
+  "name": "blob",
+  "homepage": "https://github.com/eligrey/Blob.js",
+  "_release": "dc70deb870",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "dc70deb8700cb1562e373a1375e672f13a7be6f7"
+  },
+  "_source": "git://github.com/eligrey/Blob.js.git",
+  "_target": "*",
+  "_originalSource": "blob",
+  "_direct": true
+}
