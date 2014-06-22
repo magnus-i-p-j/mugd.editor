@@ -22,7 +22,7 @@ mugd.utils.bindings.addScaledImage = function () {
         var ratio = Math.min(element.width / img.width, element.height / img.height, 1);
         var width = img.width * ratio;
         var height = img.height * ratio;
-        var dx = element.width /2 - width/2;
+        var dx = element.width / 2 - width / 2;
         var dy = (element.height - height) / 4;
 
         var ctx = element.getContext('2d');
@@ -31,6 +31,31 @@ mugd.utils.bindings.addScaledImage = function () {
       };
       var value = valueAccessor();
       img.src = ko.unwrap(value);
+    }
+  };
+
+};
+
+
+/**
+ * Copied from http://stackoverflow.com/a/9233786
+ * Generates unique ids for use with label for-attribute
+ * This solution was chosen since nothing on the model or template can be assumed to be unique for the page
+ */
+mugd.utils.bindings.addUniqueId = function () {
+  var prefix = 'mugd_id_';
+  var counter = 0;
+  ko.bindingHandlers['uniqueId'] = {
+    'init': function (element) {
+      counter += 1;
+      element.id = prefix + counter;
+    }
+  };
+
+  ko.bindingHandlers['uniqueFor'] = {
+    'init': function (element, valueAccessor) {
+      var after = counter + (ko.utils.unwrapObservable(valueAccessor()) === 'after' ? 0 : 1);
+      element.setAttribute('for', prefix + after);
     }
   };
 

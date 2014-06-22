@@ -50,8 +50,7 @@ mugd.editor._getModel = function (schema, schemaResolver, linkResolver) {
   if (mugd.editor.ArrayViewModel.isArrayValue(schema)) {
     return new mugd.editor.ArrayViewModel(schema, linkResolver, function () {
       return mugd.editor._getModel(schema['items'], schemaResolver, linkResolver);
-    });
-  }
+    });  }
 
   throw {'name': 'TypeMismatchException', 'reason': 'no such type supported', 'schema': schema};
 };
@@ -66,6 +65,7 @@ mugd.editor.init = function (rootNode, config) {
     infuser.defaults.templatePrefix = 'tpl/editor/';
   }
   mugd.utils.bindings.addScaledImage();
+  mugd.utils.bindings.addUniqueId();
 
   var vm = new mugd.editor.EditorViewModel(config['schema'], config['data']);
   ko.applyBindings(vm, rootNode);
