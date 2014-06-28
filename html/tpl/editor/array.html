@@ -1,14 +1,16 @@
-<section data-bind="css: editor.cssify(title(),'')">
-    <header>
-        <h1 data-bind="text: title"></h1>
+<section class="panel panel-default" data-bind="css: editor.cssify(title(),'')">
+  <header class="panel-heading">
+    <h2 data-bind="text: title"></h1>
 
-        <p data-bind="text: description"></p>
-    </header>
-    <div data-bind="foreach: value" class="items">
-        <section class="card">
-            <div data-bind="template: { name: template() }, css: title().toLowerCase()"></div>
-            <button data-bind="click: function(){ $parent.deleteItem($data);}" class="delete">Delete</button>
-        </section>
-    </div>
-    <button data-bind="click: newItem">New Item</button>
+    <p data-bind="text: description"></p>
+  </header>
+  <div class="panel-body">
+    <ul data-bind="foreach: value" class="list-group">
+      <li class="list-group-item">
+        <div data-bind="template: { name: template() }, css: title().toLowerCase()"></div>
+        <button class="delete btn btn-danger" data-bind="click: function(){ $parent.deleteItem($data);}">Delete</button>
+      </li>
+    </ul>
+    <button class="btn btn-primary" data-bind="click: newItem">New Item</button>
+  </div>
 </section>

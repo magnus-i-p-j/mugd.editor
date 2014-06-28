@@ -1,6 +1,23 @@
-<section data-bind="css: modelState, click: function () {console.log($data); $root.ui.selected($data)}" class="object_image">
-  <div data-bind="foreach: properties" class="properties">
-    <div data-bind="template: { name: template()  }"></div>
+<section class="panel panel-default" data-bind="css: modelState() + ' ' + editor.cssify(title())">
+  <header class="panel-heading">
+    <h2 data-bind="text: title"></h1>
+  </header>
+  <div class="panel-body" data-bind="foreach: properties">
+    <div data-bind="css: { 'required': required, 'optional': !required, 'has_value': hasValue() }">
+      <!-- ko ifnot: required -->
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" data-bind="checked: hasValue"/>
+          <!-- ko ifnot: hasValue -->
+          <span data-bind="text: title"></span>
+          <!-- /ko -->
+        </label>
+      </div>
+      <!-- /ko -->
+      <!-- ko if: hasValue -->
+      <span data-bind="template: { name: template() }"></span>
+      <!-- /ko -->
+    </div>
+    <canvas class="icon" data-bind="scaledImage: value().url.value()"></canvas>
   </div>
-  <canvas class="icon" data-bind="scaledImage: value().url.value()"></canvas>
 </section>

@@ -1,4 +1,10 @@
-<label data-bind="attr: {title:description}">
-  <span class="label" data-bind="text: title"></span>
-  <input class="value" type="text" data-bind="value: value, css:{error: !valid(), required: (required && !value() )}"/>
-</label>
+<div class="form-group">
+  <label data-bind="attr: {title:description}, css: editor.cssify(title()), uniqueFor: 'before', text: title"></label>
+  <input class="form-control" type="text"
+         data-bind="value: value, css:{'error': !valid(), 'required': (required && !value() )}, uniqueId: true"/>
+  <!-- ko ifnot: valid -->
+  <!-- ko foreach: errors -->
+  <span data-bind="text: $data"></span>
+  <!-- /ko -->
+  <!-- /ko -->
+</div>

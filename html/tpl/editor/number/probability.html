@@ -1,4 +1,5 @@
-<label data-bind="attr: {title:description}">
-  <span class="label" data-bind="text: title"></span>
-  <input class="value" type="number" data-bind="value: value, css:{error: !valid(), required: (required && !value() )}" />
-</label>
+<div class="form-group">
+  <label data-bind="attr: {title:description}, text: title, uniqueFor: 'before'"></label>
+  <input class="form-control" type="number"
+         data-bind="value: value, css:{error: !valid(), required: (required && !value() )}, uniqueId: true"/>
+</div>

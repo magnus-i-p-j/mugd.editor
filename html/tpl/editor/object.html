@@ -1,20 +1,22 @@
-<section data-bind="css: modelState() + ' ' + editor.cssify(title())">
-  <header>
-    <h1 data-bind="text: title"></h1>
+<section class="panel panel-default" data-bind="css: modelState() + ' ' + editor.cssify(title())">
+  <header class="panel-heading">
+    <h2 data-bind="text: title"></h1>
   </header>
-  <div data-bind="foreach: properties">
+  <div class="panel-body" data-bind="foreach: properties">
     <div data-bind="css: { 'required': required, 'optional': !required, 'has_value': hasValue() }">
       <!-- ko ifnot: required -->
-          <label>
-            <input type="checkbox" data-bind="checked: hasValue"/>
-            <!-- ko ifnot: hasValue -->
-              <span data-bind="text: title"></span>
-            <!-- /ko -->
-          </label>
-        <!-- /ko -->
-        <!-- ko if: hasValue -->
-        <span data-bind="template: { name: template() }"></span>
-        <!-- /ko -->
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" data-bind="checked: hasValue"/>
+          <!-- ko ifnot: hasValue -->
+          <span data-bind="text: title"></span>
+          <!-- /ko -->
+        </label>
+      </div>
+      <!-- /ko -->
+      <!-- ko if: hasValue -->
+      <span data-bind="template: { name: template() }"></span>
+      <!-- /ko -->
     </div>
   </div>
 </section>
