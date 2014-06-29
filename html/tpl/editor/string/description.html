@@ -1,4 +1,10 @@
-<label data-bind="attr: {title:description}">
-  <span class="label" data-bind="text: title"></span>
-  <textarea rows="4" cols="50" data-bind="value: value, css:{error: !valid(), required: (required && !value() )}"></textarea>
-</label>
+<div class="form-group">
+  <label data-bind="attr: {title:description}, css: editor.cssify(title()), uniqueFor: 'before', text: title"></label>
+  <textarea class="form-control" data-bind="value: value" rows="4"></textarea>
+  <!-- /ko -->
+  <!-- ko ifnot: valid -->
+  <!-- ko foreach: errors -->
+  <span data-bind="text: $data"></span>
+  <!-- /ko -->
+  <!-- /ko -->
+</div>

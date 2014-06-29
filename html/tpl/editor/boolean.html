@@ -1,4 +1,6 @@
-<label data-bind="attr: {title:description}">
-  <span class="label" data-bind="text: title"></span>
-  <input class="value" type="checkbox" data-bind="checked: value" />
-</label>
+<div class="checkbox">
+  <label data-bind="attr: {title:description}">
+    <input type="checkbox" data-bind="checked: value"/>
+    <span data-bind="text: title"></span>
+  </label>
+</div>

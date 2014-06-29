@@ -1,15 +1,20 @@
-<section id="editor_tools" data-bind="css: tools.state">
-  <div class="ux top-left expand" data-bind="click: function() {tools.state('expanded')}">+</div>
-  <div class="ux top-left collapse" data-bind="click: function() {tools.state('collapsed')}">-</div>
-  <label class="row"><span>Schema URI:</span><input type="text" data-bind="value: schemaUri"/></label>
-  <label class="row"><span>Data URI:</span><input type="text" data-bind="value: dataUri"/></label>
-  <div class="buttons">
-    <button data-bind="click: loadModel">Load model</button>
+<header id="editor_tools" class="navbar navbar-default">
+  <div class="form-group">
+    <label data-bind="uniqueFor: 'before'">Schema URI:</label>
+    <input type="text" class="form-control" data-bind="value: schemaUri, uniqueId: true"/>
+  </div>
+  <div class="form-group">
+    <label data-bind="uniqueFor: 'before'">Data URI:</label>
+    <input type="text" class="form-control" data-bind="value: dataUri, uniqueId: true"/>
+  </div>
+
+  <div class="btn-group btn-group-xs">
+    <button data-bind="click: loadModel" class="btn btn-default">Load model</button>
     <!-- ko with: model -->
-    <button data-bind="click: saveModel">Save model</button>
+    <button data-bind="click: saveModel" class="btn btn-default">Save model</button>
     <!-- /ko -->
   </div>
-</section>
+</header>
 <!-- ko if: model() -->
 <section id="root_data" data-bind="template: { 'name': model().template(), 'data': model() }">
 </section>

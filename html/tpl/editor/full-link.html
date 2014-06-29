@@ -1,8 +1,9 @@
-<label data-bind="attr: {title:description}">
-  <span class="label" data-bind="text: title"></span>
-  <select data-bind="options: options,
+<div class="form-group">
+  <label data-bind="attr: {title:description}, uniqueFor: 'before', text: title"></label>
+  <select class="form-control" data-bind="options: options,
   optionsText: function(i) {
     return i.value().name.value();
   },
-  value: model"></select>
-</label>
+  value: model,
+  uniqueId: true"></select>
+</div>
