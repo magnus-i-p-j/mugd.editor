@@ -1,0 +1,13 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "quotes": [2, "single"],
+    "strict": false,
+    "dot-notation": false,
+    "no-underscore-dangle": false,
+    "no-undef": false
+  }
+}

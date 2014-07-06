@@ -1,26 +1,34 @@
-<header id="editor_tools" class="navbar navbar-default">
-  <div class="form-group">
-    <label data-bind="uniqueFor: 'before'">Schema URI:</label>
-    <input type="text" class="form-control" data-bind="value: schemaUri, uniqueId: true"/>
-  </div>
-  <div class="form-group">
-    <label data-bind="uniqueFor: 'before'">Data URI:</label>
-    <input type="text" class="form-control" data-bind="value: dataUri, uniqueId: true"/>
-  </div>
+<div class="container-fluid">
+  <div class="row">
+    <header id="editor_tools" class="navbar navbar-default">
+      <div class="form-group">
+        <label data-bind="uniqueFor: 'before'">Schema URI:</label>
+        <input type="text" class="form-control" data-bind="value: schemaUri, uniqueId: true"/>
+      </div>
+      <div class="form-group">
+        <label data-bind="uniqueFor: 'before'">Data URI:</label>
+        <input type="text" class="form-control" data-bind="value: dataUri, uniqueId: true"/>
+      </div>
 
-  <div class="btn-group btn-group-xs">
-    <button data-bind="click: loadModel" class="btn btn-default">Load model</button>
-    <!-- ko with: model -->
-    <button data-bind="click: saveModel" class="btn btn-default">Save model</button>
+      <div class="btn-group btn-group-xs">
+        <button data-bind="click: loadModel" class="btn btn-default">Load model</button>
+        <!-- ko with: model -->
+        <button data-bind="click: saveModel" class="btn btn-default">Save model</button>
+        <!-- /ko -->
+      </div>
+    </header>
+  </div>
+  <div class="row">
+    <!-- ko if: model() -->
+    <section class="col-sm-6 col-lg-4" data-bind="template: { 'name': model().template(), 'data': model() }">
+    </section>
+    <section class="col-sm-6 col-lg-4" data-bind="template: { 'name': 'windows', 'data': $root.windows }">
+    </section>
+    <section class="col-sm-6 col-lg-4">
+      <!-- ko if: (ui.selected() && ui.selected().template) -->
+      <div data-bind="template: { name: ui.selected().template() + '/selected', data:ui.selected() }"></div>
+      <!-- /ko -->
+    </section>
     <!-- /ko -->
   </div>
-</header>
-<!-- ko if: model() -->
-<section id="root_data" data-bind="template: { 'name': model().template(), 'data': model() }">
-</section>
-<!-- /ko -->
-<section id="selected_viewer" class="column">
-  <!-- ko if: (ui.selected() && ui.selected().template) -->
-  <div data-bind="template: { name: ui.selected().template() + '/selected', data:ui.selected() }"></div>
-  <!-- /ko -->
-</section>
+</div>

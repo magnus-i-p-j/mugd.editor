@@ -1,6 +1,7 @@
 goog.provide('mugd.editor.EditorViewModel');
 
 goog.require('goog.net.XhrIo');
+goog.require('mugd.editor.WindowViewModel');
 
 /**
  * @constructor
@@ -11,12 +12,13 @@ mugd.editor.EditorViewModel = function (schema, data) {
   this['schemaUri'] = ko.observable(schema);
   this['dataUri'] = ko.observable(data);
   this['model'] = ko.observable();
+  this['windows'] = ko.observableArray();
   this['ui'] = {
     'selected': ko.observable()
   };
   this['tools'] = {
     'state': ko.observable('collapsed')
-  }
+  };
 };
 
 mugd.editor.EditorViewModel.prototype['loadModel'] = function () {
@@ -35,3 +37,17 @@ mugd.editor.EditorViewModel.prototype['loadModel'] = function () {
   );
 };
 
+/**
+ * @param {!mugd.editor.IViewModel} model
+ */
+mugd.editor.EditorViewModel.prototype['addWindow'] = function (model) {
+  var w = new mugd.editor.WindowViewModel(model);
+  this['windows'].push(w);
+};
+
+/**
+ * @param {!mugd.editor.WindowViewModel} w
+ */
+mugd.editor.EditorViewModel.prototype['removeWindow'] = function (w) {
+  this['windows'].remove(w);
+};

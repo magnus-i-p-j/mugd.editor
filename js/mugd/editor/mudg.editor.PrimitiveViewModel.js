@@ -57,7 +57,7 @@ mugd.editor.PrimitiveViewModel.prototype['setValue'] = function (value) {
   }
   catch(ex){
     throw {
-      message: "Exception thrown when trying to set " + this['title']() + " to " + value,
+      message: 'Exception thrown when trying to set ' + this['title']() + ' to ' + value,
       inner: ex
     }
   }
