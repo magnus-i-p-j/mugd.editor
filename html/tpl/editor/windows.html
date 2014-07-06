@@ -1,0 +1,6 @@
+<ul data-bind="foreach: $data" class="list-group">
+  <li class="list-group-item">
+    <div data-bind="template: { name: model().template(), 'data': model }"></div>
+    <button class="delete btn btn-danger" data-bind="click: function(){ $root.removeWindow($data);}">Remove window</button>
+  </li>
+</ul>
