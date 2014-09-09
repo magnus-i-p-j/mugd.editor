@@ -144,6 +144,7 @@
             "description": "Lists the prerequisites for the project",
             "title": "Prerequisites",
             "type": "object",
+            "required": ["danger"],
             "properties": {
               "terrain": {
                 "type": "array",
@@ -158,6 +159,11 @@
                     "href": "game://terrain/{@}"
                   }
                 }
+              },
+              "danger": {
+                "title": "Danger",
+                "description": "How dangerous the tile can be for the project",
+                "type": "number"
               }
             }
           },
