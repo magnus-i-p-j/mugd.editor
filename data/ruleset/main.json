@@ -90,6 +90,28 @@
       "description": "The stuff the tile is made of"
     }
   ],
+  "season": [
+    {
+      "type": "winter",
+      "name": "Winter",
+      "description": "Cold, snowy, white..."
+    },
+    {
+      "type": "spring",
+      "name": "Spring",
+      "description": "Bouncy!"
+    },
+    {
+      "type": "summer",
+      "name": "Summer",
+      "description": "Warm, rainy, green..."
+    },
+    {
+      "type": "autumn",
+      "name": "Autumn",
+      "description": "The best season!"
+    }
+  ],
   "project": [
     {
       "type": "build_fence",
@@ -98,9 +120,7 @@
       "activity": 10,
       "defence": 0,
       "prerequisites": {
-        "terrain": [
-          "grass"
-        ],
+        "terrain": ["grass"],
         "danger": 20
       },
       "effects": {"effect_terrain": "fence"},
@@ -128,7 +148,10 @@
         "terrain": ["field"],
         "danger": 0
       },
-      "effects": {"effect_terrain": "beet_field"},
+      "effects": {
+        "effect_terrain": "beet_field",
+        "effect_neutral_project": "grow_beets"
+      },
       "cost": {
         "work": {
           "combat": 0,
@@ -1268,6 +1291,12 @@
         "type": "scrap",
         "amount": 5
       }
+    ],
+    "year": [
+      "autumn",
+      "winter",
+      "spring",
+      "summer"
     ]
   }
 }

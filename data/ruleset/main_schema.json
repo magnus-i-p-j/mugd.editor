@@ -6,6 +6,7 @@
     "terrain",
     "zone",
     "project",
+    "season",
     "actor",
     "tile",
     "stockpile",
@@ -25,7 +26,15 @@
         "title": "Terrain",
         "description": "Some sort of stuff to walk on.",
         "type": "object",
-        "required": ["name", "type", "description", "zone", "image", "defence", "activity"],
+        "required": [
+          "name",
+          "type",
+          "description",
+          "zone",
+          "image",
+          "defence",
+          "activity"
+        ],
         "properties": {
           "type": {
             "title": "Type",
@@ -85,7 +94,11 @@
         "title": "Zone",
         "description": "A part of the stuff you walk on.",
         "type": "object",
-        "required": ["name", "type", "description"],
+        "required": [
+          "name",
+          "type",
+          "description"
+        ],
         "properties": {
           "type": {
             "title": "Type",
@@ -116,7 +129,11 @@
         "title": "Season",
         "description": "A period of the year",
         "type": "object",
-        "required": ["name", "type", "description"],
+        "required": [
+          "name",
+          "type",
+          "description"
+        ],
         "properties": {
           "type": {
             "title": "Type",
@@ -147,7 +164,16 @@
         "title": "Project",
         "description": "A project that does stuff",
         "type": "object",
-        "required": ["name", "type", "description", "prerequisites", "effects", "cost", "activity", "defence"],
+        "required": [
+          "name",
+          "type",
+          "description",
+          "prerequisites",
+          "effects",
+          "cost",
+          "activity",
+          "defence"
+        ],
         "properties": {
           "type": {
             "title": "Type",
@@ -229,7 +255,11 @@
                   "title": "Resource",
                   "description": "One of the resources",
                   "type": "object",
-                  "required": ["type", "magnitude", "variation"],
+                  "required": [
+                    "type",
+                    "magnitude",
+                    "variation"
+                  ],
                   "properties": {
                     "type": {
                       "title": "Resource",
@@ -279,7 +309,10 @@
                   "title": "Resource",
                   "description": "One of the required resources",
                   "type": "object",
-                  "required": ["type", "amount"],
+                  "required": [
+                    "type",
+                    "amount"
+                  ],
                   "properties": {
                     "type": {
                       "title": "Resource",
@@ -302,7 +335,11 @@
                 "title": "Work",
                 "description": "The quantity of work required",
                 "type": "object",
-                "required": ["combat", "knowledge", "labour"],
+                "required": [
+                  "combat",
+                  "knowledge",
+                  "labour"
+                ],
                 "properties": {
                   "combat": {
                     "title": "Combat",
@@ -324,7 +361,6 @@
             }
           }
         }
-
       }
     },
     "actor": {
@@ -335,7 +371,11 @@
         "title": "Actor",
         "description": "An actor",
         "type": "object",
-        "required": ["name", "type", "description"],
+        "required": [
+          "name",
+          "type",
+          "description"
+        ],
         "properties": {
           "type": {
             "title": "Type",
@@ -362,7 +402,11 @@
         "title": "Tile",
         "description": "A tile",
         "type": "object",
-        "required": ["name", "type", "description"],
+        "required": [
+          "name",
+          "type",
+          "description"
+        ],
         "properties": {
           "type": {
             "title": "Type",
@@ -389,7 +433,11 @@
         "title": "Stockpile",
         "description": "A stockpiled resource",
         "type": "object",
-        "required": ["name", "type", "description"],
+        "required": [
+          "name",
+          "type",
+          "description"
+        ],
         "properties": {
           "type": {
             "title": "Type",
@@ -420,7 +468,14 @@
         "title": "Archetype",
         "description": "A archetype",
         "type": "object",
-        "required": ["type", "name", "description", "stats", "traits", "frequency"],
+        "required": [
+          "type",
+          "name",
+          "description",
+          "stats",
+          "traits",
+          "frequency"
+        ],
         "properties": {
           "type": {
             "title": "Type",
@@ -445,7 +500,11 @@
             "title": "Stats",
             "description": "A quantifiable characteristic",
             "type": "object",
-            "required": ["combat", "knowledge", "labour"],
+            "required": [
+              "combat",
+              "knowledge",
+              "labour"
+            ],
             "properties": {
               "combat": {
                 "title": "Combat",
@@ -472,7 +531,10 @@
               "title": "Trait",
               "description": "A trait",
               "type": "object",
-              "required": ["type", "probability"],
+              "required": [
+                "type",
+                "probability"
+              ],
               "properties": {
                 "type": {
                   "title": "Trait type",
@@ -506,7 +568,11 @@
         "title": "Trait",
         "description": "A trait",
         "type": "object",
-        "required": ["type", "name", "description"],
+        "required": [
+          "type",
+          "name",
+          "description"
+        ],
         "properties": {
           "type": {
             "title": "Type",
@@ -537,7 +603,10 @@
         "title": "Character",
         "description": "A character",
         "type": "object",
-        "required": ["name", "type"],
+        "required": [
+          "name",
+          "type"
+        ],
         "properties": {
           "name": {
             "title": "Name",
@@ -578,7 +647,11 @@
         "title": "Character type",
         "description": "A character type",
         "type": "object",
-        "required": ["type", "name", "description"],
+        "required": [
+          "type",
+          "name",
+          "description"
+        ],
         "properties": {
           "type": {
             "title": "Type",
@@ -609,7 +682,10 @@
         "title": "Image",
         "description": "An image",
         "type": "object",
-        "required": ["url", "type"],
+        "required": [
+          "url",
+          "type"
+        ],
         "properties": {
           "type": {
             "title": "Type",
@@ -631,7 +707,10 @@
       "title": "Bounds",
       "description": "Rules affecting the start and end of the game",
       "type": "object",
-      "required": ["starting_resources"],
+      "required": [
+        "starting_resources",
+        "year"
+      ],
       "properties": {
         "starting_resources": {
           "type": "array",
@@ -641,7 +720,10 @@
             "title": "Resource",
             "description": "One of the provided resources",
             "type": "object",
-            "required": ["type", "amount"],
+            "required": [
+              "type",
+              "amount"
+            ],
             "properties": {
               "type": {
                 "title": "Resource",
@@ -655,6 +737,20 @@
                 "title": "Amount",
                 "type": "number"
               }
+            }
+          }
+        },
+        "year": {
+          "type": "array",
+          "title": "Year",
+          "description": "The order of seasons",
+          "items": {
+            "title": "Season",
+            "description": "One of the provided seasons",
+            "type": "string",
+            "links": {
+              "rel": "full",
+              "href": "game://season/{@}"
             }
           }
         }
