@@ -108,6 +108,37 @@
         }
       }
     },
+    "season": {
+      "title": "Seasons",
+      "description": "The seasons of a year",
+      "type": "array",
+      "items": {
+        "title": "Season",
+        "description": "A period of the year",
+        "type": "object",
+        "required": ["name", "type", "description"],
+        "properties": {
+          "type": {
+            "title": "Type",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "description": "Visible name of season",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "description": "Describes the season",
+            "type": "string"
+          }
+        },
+        "links": {
+          "rel": "self",
+          "href": "game://season/{type}"
+        }
+      }
+    },
     "project": {
       "title": "Projects",
       "description": "Change things for the better",
@@ -139,6 +170,25 @@
           "defence": {
             "title": "Defence",
             "type": "number"
+          },
+          "trigger": {
+            "description": "Lists the triggers for the project",
+            "title": "Triggers",
+            "type": "array",
+            "items": {
+              "description": "A trigger for the project",
+              "title": "Trigger",
+              "type": "object",
+              "required": ["action"],
+              "properties": {
+                "action": {
+                  "title": "Action",
+                  "description": "The action to take when it triggers",
+                  "type": "string",
+                  "enum": ["fail_on_winter"]
+                }
+              }
+            }
           },
           "prerequisites": {
             "description": "Lists the prerequisites for the project",
@@ -274,6 +324,7 @@
             }
           }
         }
+
       }
     },
     "actor": {
