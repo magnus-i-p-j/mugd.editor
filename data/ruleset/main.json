@@ -148,10 +148,7 @@
         "terrain": ["field"],
         "danger": 0
       },
-      "effects": {
-        "effect_terrain": "beet_field",
-        "effect_neutral_project": "grow_beets"
-      },
+      "effects": {"effect_terrain": "beet_field"},
       "cost": {
         "work": {
           "combat": 0,
@@ -1245,10 +1242,6 @@
   ],
   "images": [
     {
-      "type": "fence_2",
-      "url": "tiles/fence_2.png"
-    },
-    {
       "type": "fence",
       "url": "tiles/fence.png"
     },
@@ -1261,16 +1254,8 @@
       "url": "tiles/grass.png"
     },
     {
-      "type": "hill",
-      "url": "tiles/hill.png"
-    },
-    {
       "type": "house",
-      "url": "tiles/house.png"
-    },
-    {
-      "type": "tiles",
-      "url": "tiles/tiles.png"
+      "url": "tiles/house1.png"
     },
     {
       "type": "water",
