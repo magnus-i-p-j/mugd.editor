@@ -172,6 +172,7 @@
           "effects",
           "cost",
           "activity",
+          "triggers",
           "defence"
         ],
         "properties": {
@@ -197,21 +198,109 @@
             "title": "Defence",
             "type": "number"
           },
-          "trigger": {
-            "description": "Lists the triggers for the project",
+          "triggers": {
             "title": "Triggers",
+            "description": "Lists the triggers for the project",
             "type": "array",
             "items": {
-              "description": "A trigger for the project",
               "title": "Trigger",
+              "description": "A trigger",
               "type": "object",
-              "required": ["action"],
+              "required": [
+                "predicate",
+                "effects"
+              ],
               "properties": {
-                "action": {
-                  "title": "Action",
-                  "description": "The action to take when it triggers",
-                  "type": "string",
-                  "enum": ["fail_on_winter"]
+                "predicate": {
+                  "title": "Predicate",
+                  "description": "The predicate for the trigger",
+                  "required": ["type"],
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "title": "Predicate type",
+                      "description": "The type of predicate",
+                      "type": "string",
+                      "enum": [
+                        "complete",
+                        "season",
+                        "end",
+                        "duration"
+                      ]
+                    },
+                    "season": {
+                      "title": "Season parameter",
+                      "description": "The season the predicate uses",
+                      "type": "string",
+                      "links": {
+                        "rel": "full",
+                        "href": "game://season/{@}"
+                      }
+                    },
+                    "duration": {
+                      "title": "Duration",
+                      "description": "Has this effect after a number of turns",
+                      "type": "number"
+                    }
+                  }
+                },
+                "effects": {
+                  "title": "Effects",
+                  "description": "The effects this project has",
+                  "type": "object",
+                  "required": ["effect_end"],
+                  "properties": {
+                    "effect_stockpile": {
+                      "title": "Change stockpile",
+                      "type": "array",
+                      "items": {
+                        "title": "Resource",
+                        "description": "One of the resources",
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "magnitude",
+                          "variation"
+                        ],
+                        "properties": {
+                          "type": {
+                            "title": "Resource",
+                            "description": "The gained resource",
+                            "type": "string",
+                            "links": {
+                              "rel": "full",
+                              "href": "game://stockpile/{@}"
+                            }
+                          },
+                          "magnitude": {
+                            "title": "Magnitude",
+                            "description": "The amount gained",
+                            "type": "number"
+                          },
+                          "variation": {
+                            "title": "Variation",
+                            "description": "The variation in amount gained",
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "description": "Gain this stuff"
+                    },
+                    "effect_terrain": {
+                      "title": "Change terrain",
+                      "description": "Change to this terrain",
+                      "type": "string",
+                      "links": {
+                        "rel": "full",
+                        "href": "game://terrain/{@}"
+                      }
+                    },
+                    "effect_end": {
+                      "title": "End project",
+                      "description": "End the project",
+                      "type": "boolean"
+                    }
+                  }
                 }
               }
             }
@@ -223,9 +312,9 @@
             "required": ["danger"],
             "properties": {
               "terrain": {
-                "type": "array",
                 "title": "Terrains",
                 "description": "The terrain types this project is applicable to",
+                "type": "array",
                 "items": {
                   "title": "Terrain",
                   "description": "One of the possible terrains",
@@ -243,63 +332,14 @@
               }
             }
           },
-          "effects": {
-            "type": "object",
-            "title": "Effects",
-            "description": "The effects this project has",
-            "properties": {
-              "effect_stockpile": {
-                "title": "Change stockpile",
-                "type": "array",
-                "items": {
-                  "title": "Resource",
-                  "description": "One of the resources",
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "magnitude",
-                    "variation"
-                  ],
-                  "properties": {
-                    "type": {
-                      "title": "Resource",
-                      "description": "The gained resource",
-                      "type": "string",
-                      "links": {
-                        "rel": "full",
-                        "href": "game://stockpile/{@}"
-                      }
-                    },
-                    "magnitude": {
-                      "title": "Magnitude",
-                      "description": "The amount gained",
-                      "type": "number"
-                    },
-                    "variation": {
-                      "title": "Variation",
-                      "description": "The variation in amount gained",
-                      "type": "number"
-                    }
-                  }
-                },
-                "description": "Gain this stuff"
-              },
-              "effect_terrain": {
-                "title": "Change terrain",
-                "description": "Change to this terrain",
-                "type": "string",
-                "links": {
-                  "rel": "full",
-                  "href": "game://terrain/{@}"
-                }
-              }
-            }
-          },
           "cost": {
             "description": "Lists the cost for the project",
             "title": "Costs",
             "type": "object",
-            "required": ["work"],
+            "required": [
+              "work",
+              "time"
+            ],
             "properties": {
               "stockpile": {
                 "type": "array",
@@ -357,6 +397,11 @@
                     "type": "number"
                   }
                 }
+              },
+              "time": {
+                "title": "Time",
+                "description": "The number of turns that must be invested",
+                "type": "number"
               }
             }
           }
