@@ -1423,6 +1423,10 @@
     {
       "type": "scrap",
       "amount": 5
+    },
+    {
+      "type": "food",
+      "amount": 40
     }
   ],
   "year": ["autumn", "winter", "spring", "summer"]
