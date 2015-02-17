@@ -320,6 +320,32 @@
                       "title": "End project",
                       "description": "End the project",
                       "type": "boolean"
+                    },
+                    "effect_message": {
+                      "title": "Send message",
+                      "description": "Send a message",
+                      "type": "object",
+                      "required": [
+                        "text",
+                        "level"
+                      ],
+                      "properties": {
+                        "text": {
+                          "title": "Text",
+                          "description": "The text shown",
+                          "type": "string"
+                        },
+                        "level": {
+                          "title": "Level",
+                          "description": "The display level",
+                          "type": "string",
+                          "enum": [
+                            "usual",
+                            "important",
+                            "trivial"
+                          ]
+                        }
+                      }
                     }
                   }
                 }
@@ -892,6 +918,32 @@
                       "victory",
                       "defeat"
                     ]
+                  },
+                  "effect_message": {
+                    "title": "Send message",
+                    "description": "Send a message",
+                    "type": "object",
+                    "required": [
+                      "text",
+                      "level"
+                    ],
+                    "properties": {
+                      "text": {
+                        "title": "Text",
+                        "description": "The text shown",
+                        "type": "string"
+                      },
+                      "level": {
+                        "title": "Level",
+                        "description": "The display level",
+                        "type": "string",
+                        "enum": [
+                          "usual",
+                          "important",
+                          "trivial"
+                        ]
+                      }
+                    }
                   }
                 }
               }
