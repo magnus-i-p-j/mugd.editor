@@ -1385,7 +1385,7 @@
         "effects": {
           "effect_game_over": "defeat",
           "effect_message": {
-            "text": "As the sun rises, you look at the few remaining surviors. So few; not enough to defend the smallest of bases. \n\nDuring the day, you collect what supplies you can and set off, hoping to outrun the hordes.\n\nIn your heart, though, you know that humanity cant survive as roving nomads.\n\nYou have failed.",
+            "text": "As the sun rises, you look at the few remaining surviors. So few; not enough to defend the smallest of bases.\n\nDuring the day, you collect what supplies you can and set off, hoping to outrun the hordes.\n\nIn your heart, though, you know that humanity cant survive as roving nomads.\n\n**You have failed.**",
             "level": "important"
           }
         }
