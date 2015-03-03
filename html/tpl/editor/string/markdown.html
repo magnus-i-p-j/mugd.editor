@@ -1,0 +1,10 @@
+<div class="form-group">
+  <label data-bind="attr: {title:description}, css: editor.cssify(title()), uniqueFor: 'before', text: title"></label>
+  <textarea class="form-control" data-bind="textInput: value" rows="4"></textarea>
+  <!-- ko ifnot: valid -->
+  <!-- ko foreach: errors -->
+  <span data-bind="text: $data"></span>
+  <!-- /ko -->
+  <!-- /ko -->
+  <div data-bind="markdown: value"></div>
+</div>

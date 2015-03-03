@@ -66,6 +66,7 @@ mugd.editor.init = function (rootNode, config) {
   }
   mugd.utils.bindings.addScaledImage();
   mugd.utils.bindings.addUniqueId();
+  mugd.utils.bindings.addMarkdown();
 
   var vm = new mugd.editor.EditorViewModel(config['schema'], config['data']);
   ko.applyBindings(vm, rootNode);

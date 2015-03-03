@@ -5,9 +5,10 @@
     // may consider adding <template> to this list, because such elements' contents are always
     // intended to be bound in a different context from where they appear in the document.
     var bindingDoesNotRecurseIntoElementTypes = {
-        // Don't want bindings that operate on text nodes to mutate <script> contents,
+        // Don't want bindings that operate on text nodes to mutate <script> and <textarea> contents,
         // because it's unexpected and a potential XSS issue
-        'script': true
+        'script': true,
+        'textarea': true
     };
 
     // Use an overridable method for retrieving binding handlers so that a plugins may support dynamically created handlers
@@ -425,8 +426,8 @@
 
     ko.applyBindings = function (viewModelOrBindingContext, rootNode) {
         // If jQuery is loaded after Knockout, we won't initially have access to it. So save it here.
-        if (!jQuery && window['jQuery']) {
-            jQuery = window['jQuery'];
+        if (!jQueryInstance && window['jQuery']) {
+            jQueryInstance = window['jQuery'];
         }
 
         if (rootNode && (rootNode.nodeType !== 1) && (rootNode.nodeType !== 8))
