@@ -894,7 +894,7 @@
                     "type": "string",
                     "enum": [
                       "people",
-                      "turn"
+                      "time"
                     ]
                   },
                   "min": {
