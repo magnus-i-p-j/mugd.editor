@@ -70,15 +70,6 @@
     "image": "water",
     "activity": 5,
     "defence": 0
-  },
-  {
-    "type": "zombie_density_high",
-    "name": "High Zombie Density",
-    "description": "Overlay for zombie density",
-    "zone": "overlay",
-    "image": "fence",
-    "activity": 0,
-    "defence": 0
   }
 ], "zone": [
   {
@@ -100,6 +91,11 @@
     "type": "overlay",
     "name": "Overlay",
     "description": "An overlay for the tile"
+  },
+  {
+    "type": "notice",
+    "name": "Notice",
+    "description": "Notice me!"
   }
 ], "season": [
   {
@@ -1422,7 +1418,7 @@
     },
     {
       "predicate": {
-        "type": "turn"
+        "type": "people"
       },
       "effects": {
         "effect_points_per_character": 1
